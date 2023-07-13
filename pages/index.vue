@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="lg:flex lg:flex-auto lg:justify-center">
-              <dl class="w-64 space-y-16 xl:w-80">
+              <dl class="w-64 space-y-10 xl:w-80">
                 <div
                   v-for="stat in stats"
                   :key="stat.label"
@@ -94,53 +94,28 @@
           </svg>
         </div>
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
-          <h2 class="text-lg font-semibold leading-8 text-center text-gray-900">
-            Trusted by the world’s most innovative teams
-          </h2>
-          <div
-            class="grid items-center max-w-lg grid-cols-4 mx-auto mt-10 gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"
+          <h2
+            class="text-2xl font-semibold leading-8 text-center text-gray-900"
           >
-            <img
-              class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
-              alt="Transistor"
-              width="158"
-              height="48"
-            />
-            <img
-              class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg"
-              alt="Reform"
-              width="158"
-              height="48"
-            />
-            <img
-              class="object-contain w-full col-span-2 max-h-12 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg"
-              alt="Tuple"
-              width="158"
-              height="48"
-            />
-            <img
-              class="object-contain w-full col-span-2 max-h-12 sm:col-start-2 lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg"
-              alt="SavvyCal"
-              width="158"
-              height="48"
-            />
-            <img
-              class="object-contain w-full col-span-2 col-start-2 max-h-12 sm:col-start-auto lg:col-span-1"
-              src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
-              alt="Statamic"
-              width="158"
-              height="48"
-            />
+            Consultez le cahier des charges Atred Valorisation
+          </h2>
+          <div class="flex justify-center">
+            <a
+              download
+              class="flex items-center justify-center p-2 mt-6 rounded-full cursor-pointer bg-primary hover:bg-opacity-80"
+            >
+              <Icon
+                name="carbon:generate-pdf"
+                class="w-12 h-12 p-2 text-white"
+              ></Icon>
+            </a>
           </div>
+          <div></div>
         </div>
       </div>
 
       <!-- Values section -->
-      <div class="px-6 mx-auto mt-32 max-w-7xl sm:mt-40 lg:px-8">
+      <div class="px-6 mx-auto mt-36 max-w-7xl sm:mt-48 lg:px-8">
         <div class="max-w-2xl mx-auto lg:mx-0">
           <h2
             class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
@@ -164,12 +139,19 @@
         </dl>
       </div>
       <!-- Image section -->
-      <div class="my-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+      <div
+        class="relative my-32 overflow-hidden sm:mt-40 xl:mx-auto rounded-3xl max-w-7xl"
+      >
         <img
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
+          src="~/assets/img/hero.jpeg"
           alt=""
-          class="aspect-[5/2] w-full object-cover xl:rounded-3xl"
+          class="aspect-[5/2] w-full object-cover hover:scale-105 transition"
         />
+        <h1
+          class="absolute text-5xl font-semibold text-white bottom-16 left-20"
+        >
+          Site de Keryvon
+        </h1>
       </div>
     </main>
   </div>
@@ -178,6 +160,7 @@
 <script setup>
 const stats = [
   { label: "de taux de revalorisation", value: "83%" },
+  { label: "d'existence", value: "+ 20 ans" },
   { label: "de dechets traités", value: "+500 tonnes" },
 ];
 const values = [
