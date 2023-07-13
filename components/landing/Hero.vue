@@ -10,7 +10,6 @@
         >
           <polygon points="0,0 90,0 50,100 0,100" />
         </svg>
-
         <div class="relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0">
           <div class="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl">
             <div class="hidden sm:mb-10 sm:flex">
@@ -37,9 +36,11 @@
               fugiat aliqua.
             </p>
             <div class="flex items-center mt-10 gap-x-6">
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+              <RouterLink
+                to="/contact"
+                class="text-sm font-semibold leading-6 text-gray-900"
                 >Pour établier un devis, contactez nous
-                <span aria-hidden="true">→</span></a
+                <span aria-hidden="true">→</span></RouterLink
               >
             </div>
           </div>
@@ -49,7 +50,7 @@
     <div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
       <img
         class="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
-        src="~/assets/img/background.jpg"
+        src="~/assets/img/hero.jpeg"
         alt=""
       />
     </div>

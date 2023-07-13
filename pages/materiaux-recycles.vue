@@ -26,14 +26,37 @@
         </h1>
       </div>
       <div
-        class="grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-5"
+        class="grid grid-cols-2 gap-2 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3"
       >
         <div
           v-for="mat in materials"
           class="flex flex-col items-center p-8 bg-gray-400/5 sm:p-10"
         >
-          <img class="object-contain h-32" :src="mat.src" alt="Transistor" />
-          <p class="mt-2 text-lg text-center">{{ mat.name }}</p>
+          <img
+            class="object-cover h-32 aspect-square"
+            :src="mat.src"
+            :alt="mat.name"
+          />
+          <p class="mt-4 text-xl font-semibold text-center">{{ mat.name }}</p>
+          <p class="mt-1 text-sm text-center text-gray-500 aspect">
+            {{ mat.desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-6 py-12 sm:px-6 sm:py-20 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+          Vous souhaitez nous achetez des graves ?
+        </h2>
+
+        <div class="flex items-center justify-center mt-8 gap-x-6">
+          <LinkRouter
+            href="/contact"
+            class="rounded-md cursor-pointer bg-primary px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >N'hésitez pas à nous contactez !</LinkRouter
+          >
         </div>
       </div>
     </div>
@@ -41,42 +64,31 @@
 </template>
 
 <script setup lang="ts">
+import gravat020 from "~/assets/img/content/gravats/gravats0-20.jpg";
+import gravat0315 from "~/assets/img/content/gravats/gravats0-315.jpg";
+import gravat080 from "~/assets/img/content/gravats/gravats0-80.jpg";
+import gravat0120 from "~/assets/img/content/gravats/gravats0-120.jpg";
+
 const materials = [
   {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
+    src: gravat020,
+    name: "Gravats 0/20",
+    desc: "Le gravillon concassé 0/20 s'utilise pour la réalisation d'un aménagement extérieur : cour, allée, jardin.",
   },
   {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
+    src: gravat0315,
+    name: "Gravats 0/31.5",
+    desc: "La grave 0/31,5 est un mélange de sable et de gravier. Il permet de réaliser un ouvrage en béton et des travaux de maçonnerie courante.",
   },
   {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
+    src: gravat080,
+    name: "Gravats 0/80",
+    desc: "La grave 0/80 est idéale pour le remblai ou pour les sous-couches d’assise dans vos chantiers.",
   },
   {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
-  },
-  {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
-  },
-  {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
-  },
-  {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
-  },
-  {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
-  },
-  {
-    src: "https://www.breizh-recyclage.fr/wp-content/uploads/2020/07/materieux-recycles-0-10-900x900px-150x150.png",
-    name: "Gravats 0-10",
+    src: gravat0120,
+    name: "Gravats 0/120",
+    desc: "La grave 0/120 est désigné pour les remblais d'accès de chantiers, remblais de dalles de maisons ou remblais industriels.",
   },
 ];
 </script>

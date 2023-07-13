@@ -28,8 +28,13 @@
             Contactez-nous
           </h2>
           <p class="mt-6 text-lg leading-8 text-gray-600">
-            Pour un devis ou toute information concernant le site de l'ISDI
-            Atred Valorisation, n'hésitez pas à nous joindre !
+            Nous voulons inscrire notre entreprise dans l’économie circulaire en
+            limitant l’enfouissement ou la destruction des déchets inertes et
+            amiantés grâce à nos techniques de valorisation et de recyclage.
+            <br />
+            Nous sommes à votre écoute pour toute demande de service :<br />
+            - Traitement des déchets inertes ;<br />
+            - Vente de matériaux recyclés.
           </p>
           <dl class="mt-10 space-y-4 text-base leading-7 text-gray-600">
             <div class="flex gap-x-4">
@@ -77,8 +82,7 @@
         </div>
       </div>
       <form
-        action="#"
-        method="POST"
+        @submit.prevent="sendEmail"
         class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
       >
         <div class="max-w-xl mx-auto lg:mr-0 lg:max-w-lg">
@@ -91,6 +95,7 @@
               >
               <div class="mt-2.5">
                 <input
+                  v-model="form.firstname"
                   type="text"
                   name="first-name"
                   id="first-name"
@@ -107,6 +112,7 @@
               >
               <div class="mt-2.5">
                 <input
+                  v-model="form.lastname"
                   type="text"
                   name="last-name"
                   id="last-name"
@@ -123,6 +129,7 @@
               >
               <div class="mt-2.5">
                 <input
+                  v-model="form.email"
                   type="email"
                   name="email"
                   id="email"
@@ -139,6 +146,7 @@
               >
               <div class="mt-2.5">
                 <input
+                  v-model="form.phone"
                   type="tel"
                   name="phone-number"
                   id="phone-number"
@@ -155,6 +163,7 @@
               >
               <div class="mt-2.5">
                 <textarea
+                  v-model="form.message"
                   name="message"
                   id="message"
                   rows="4"
@@ -177,7 +186,36 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const form = ref({
+  firstname: "",
+  lastname: "",
+  email: "",
+  phone: "",
+  message: "",
+});
+
+const sendEmail = async () => {
+  const body = {
+    firstname: form.value.firstname,
+    lastname: form.value.lastname,
+    email: form.value.email,
+    phone: form.value.phone,
+    message: form.value.message,
+  };
+  await $fetch("https://equibiogenes.com/api/email/atred" + "email", {
+    method: "POST",
+    body,
+  });
+  form.value = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    message: "",
+  };
+};
+</script>
 
 <style>
 .gradient {
