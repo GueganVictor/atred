@@ -1,0 +1,75 @@
+<script setup lang="ts">
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const isOpen = ref(false)
+
+const navigation = computed(() => [
+  { label: t('nav.home'), to: localePath('/') },
+  { label: t('nav.company'), to: localePath('/entreprise') },
+  { label: t('nav.waste'), to: localePath('/dechets-inertes') },
+  { label: t('nav.materials'), to: localePath('/materiaux-recycles') },
+  { label: t('nav.process'), to: localePath('/procedure-documents') },
+])
+</script>
+
+<template>
+  <header class="sticky top-0 z-50 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-md">
+    <div class="container-shell flex min-h-18 items-center justify-between gap-4">
+      <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
+        <img
+          src="/images/logo-atred.png"
+          :alt="t('company.name')"
+          class="h-12 p-1.5"
+        >
+      </NuxtLink>
+
+      <nav class="hidden items-center gap-7 lg:flex">
+        <NuxtLink
+          v-for="item in navigation"
+          :key="item.to"
+          :to="item.to"
+          class="text-sm font-semibold text-neutral-700 transition hover:text-brand-700"
+        >
+          {{ item.label }}
+        </NuxtLink>
+      </nav>
+
+      <div class="hidden lg:block">
+        <NuxtLink :to="localePath('/contact')" class="cta-primary">
+          {{ t('actions.askQuote') }}
+        </NuxtLink>
+      </div>
+
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 lg:hidden"
+        :aria-label="t('actions.openMenu')"
+        @click="isOpen = !isOpen"
+      >
+        <Icon :name="isOpen ? 'ph:x' : 'ph:list'" class="h-5 w-5" />
+      </button>
+    </div>
+
+    <div v-if="isOpen" class="border-t border-neutral-200 bg-white lg:hidden">
+      <nav class="container-shell flex flex-col gap-3 py-4">
+        <NuxtLink
+          v-for="item in navigation"
+          :key="item.to"
+          :to="item.to"
+          class="rounded-xl px-4 py-3 text-sm font-semibold text-neutral-800 hover:bg-neutral-100"
+          @click="isOpen = false"
+        >
+          {{ item.label }}
+        </NuxtLink>
+        <NuxtLink
+          :to="localePath('/contact')"
+          class="cta-primary mt-2"
+          @click="isOpen = false"
+        >
+          {{ t('actions.askQuote') }}
+        </NuxtLink>
+      </nav>
+    </div>
+  </header>
+</template>

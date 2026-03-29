@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eef6f5;
+  --color-brand-100: #d4e8e4;
+  --color-brand-200: #a9d1ca;
+  --color-brand-300: #74b0a6;
+  --color-brand-400: #418b81;
+  --color-brand-500: #1f655d;
+  --color-brand-600: #0c413a;
+  --color-brand-700: #0a3832;
+  --color-brand-800: #082c28;
+  --color-brand-900: #061e1b;
+
+  --color-neutral-50: #f5f7f6;
+  --color-neutral-100: #ecefed;
+  --color-neutral-200: #dbe1de;
+  --color-neutral-300: #c2cbc6;
+  --color-neutral-400: #95a39c;
+  --color-neutral-500: #6f8179;
+  --color-neutral-600: #53655d;
+  --color-neutral-700: #3b4b44;
+  --color-neutral-800: #25312d;
+  --color-neutral-900: #18211e;
+
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  --font-display: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 antialiased;
+    background-image:
+      radial-gradient(circle at top, rgba(12, 65, 58, 0.05), transparent 30%),
+      linear-gradient(180deg, rgba(24, 33, 30, 0.02), transparent 18rem);
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-neutral-900;
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-12 sm:py-14 lg:py-16;
+  }
+
+  .surface-panel {
+    @apply rounded-[1.5rem] border border-neutral-200 bg-white shadow-[0_16px_40px_-28px_rgba(24,33,30,0.28)];
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-700;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2;
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:border-neutral-400 hover:bg-neutral-100;
+  }
+
+  .grid-card {
+    @apply rounded-[1.25rem] border border-neutral-200 bg-white p-6 shadow-[0_14px_36px_-28px_rgba(24,33,30,0.25)];
+  }
+}
