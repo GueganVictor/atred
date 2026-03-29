@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { company } from '~/data/site'
 
-const { t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 const links = computed(() => [
-  { label: t('nav.company'), to: localePath('/entreprise') },
-  { label: t('nav.waste'), to: localePath('/dechets-inertes') },
-  { label: t('nav.materials'), to: localePath('/materiaux-recycles') },
-  { label: t('nav.process'), to: localePath('/procedure-documents') },
-  { label: t('nav.contact'), to: localePath('/contact') },
+  { label: t('nav.company'), to: '/entreprise' },
+  { label: t('nav.waste'), to: '/dechets-inertes' },
+  { label: t('nav.materials'), to: '/materiaux-recycles' },
+  { label: t('nav.process'), to: '/procedure-documents' },
+  { label: t('nav.contact'), to: '/contact' },
 ])
 </script>
 
@@ -38,7 +37,7 @@ const links = computed(() => [
           >
             {{ link.label }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/mentions-legales')" class="transition hover:text-white">
+          <NuxtLink to="/mentions-legales" class="transition hover:text-white">
             {{ t('footer.legal') }}
           </NuxtLink>
         </div>

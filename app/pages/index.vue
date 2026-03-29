@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { company, commitments, heroStats, localize, processSteps, recycledMaterials, services } from '~/data/site'
 
-const { locale, t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 usePageSeo({
   title: 'Valorisation et stockage de déchets inertes',
@@ -26,10 +25,10 @@ usePageSeo({
               {{ t('home.heroDescription') }}
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
-              <NuxtLink :to="localePath('/contact')" class="cta-primary">
+              <NuxtLink to="/contact" class="cta-primary">
                 {{ t('actions.askQuote') }}
               </NuxtLink>
-              <NuxtLink :to="localePath('/dechets-inertes')" class="cta-secondary">
+              <NuxtLink to="/dechets-inertes" class="cta-secondary">
                 {{ t('actions.checkAcceptedWaste') }}
               </NuxtLink>
             </div>
@@ -59,10 +58,10 @@ usePageSeo({
         <article v-for="service in services" :key="service.icon" class="grid-card">
           <Icon :name="service.icon" class="h-9 w-9 text-brand-600" />
           <h3 class="mt-5 font-display text-2xl font-semibold leading-tight text-neutral-900">
-            {{ localize(service.title, locale) }}
+            {{ localize(service.title) }}
           </h3>
           <p class="mt-4 text-sm leading-7 text-neutral-700">
-            {{ localize(service.description, locale) }}
+            {{ localize(service.description) }}
           </p>
         </article>
       </div>
@@ -91,10 +90,10 @@ usePageSeo({
               </div>
               <div>
                 <h3 class="text-lg mt-1 font-semibold text-neutral-900">
-                  {{ localize(step.title, locale) }}
+                  {{ localize(step.title) }}
                 </h3>
                 <p class="mt-2 text-sm leading-7 text-neutral-700">
-                  {{ localize(step.description, locale) }}
+                  {{ localize(step.description) }}
                 </p>
               </div>
             </div>
@@ -122,12 +121,12 @@ usePageSeo({
                 <div>
                   <p class="font-semibold text-neutral-900">{{ material.name }} {{ material.size }}</p>
                   <p class="mt-1 text-sm leading-6 text-neutral-700">
-                    {{ localize(material.usage, locale) }}
+                    {{ localize(material.usage) }}
                   </p>
                 </div>
               </div>
             </div>
-            <NuxtLink :to="localePath('/materiaux-recycles')" class="cta-secondary mt-6">
+            <NuxtLink to="/materiaux-recycles" class="cta-secondary mt-6">
               {{ t('actions.viewMaterials') }}
             </NuxtLink>
           </div>          

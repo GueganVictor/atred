@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { company, faqs } from '~/data/site'
 
-const { locale, t } = useI18n()
+const t = useCopy()
 
 usePageSeo({
   title: 'Contact et devis',
@@ -59,10 +59,10 @@ usePageSeo({
                 class="rounded-xl border border-neutral-200 bg-neutral-50 px-5 py-4"
               >
                 <summary class="cursor-pointer list-none font-semibold text-neutral-900">
-                  {{ item.question[locale as 'fr' | 'en'] ?? item.question.fr }}
+                  {{ item.question.fr }}
                 </summary>
                 <p class="mt-3 text-sm leading-7 text-neutral-700">
-                  {{ item.answer[locale as 'fr' | 'en'] ?? item.answer.fr }}
+                  {{ item.answer.fr }}
                 </p>
               </details>
             </div>

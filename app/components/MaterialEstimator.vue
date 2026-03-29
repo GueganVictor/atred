@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { recycledMaterials, localize } from '~/data/site'
 
-const { locale, t } = useI18n()
+const t = useCopy()
 
 const materialSlug = ref(recycledMaterials[2]?.slug ?? recycledMaterials[0].slug)
 const length = ref<number | null>(null)
@@ -75,7 +75,7 @@ const tonnage = computed(() => volume.value * selectedMaterial.value.density)
     <div class="mt-8 grid gap-4 border-t border-white/10 pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
       <div>
         <p class="text-sm text-neutral-100">
-          {{ localize(selectedMaterial.usage, locale) }}
+          {{ localize(selectedMaterial.usage) }}
         </p>
       </div>
       <div class="grid gap-4 sm:grid-cols-2">

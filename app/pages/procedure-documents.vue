@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { documents, localize, processSteps } from '~/data/site'
 
-const { locale, t } = useI18n()
+const t = useCopy()
 
 usePageSeo({
   title: 'Procédure et documents',
@@ -26,10 +26,10 @@ usePageSeo({
         <article v-for="(step, index) in processSteps" :key="index" class="grid-card">
           <p class="font-display text-4xl font-semibold leading-none text-brand-500">{{ `0${index + 1}` }}</p>
           <h2 class="mt-5 text-lg font-semibold text-neutral-900">
-            {{ localize(step.title, locale) }}
+            {{ localize(step.title) }}
           </h2>
           <p class="mt-3 text-sm leading-7 text-neutral-700">
-            {{ localize(step.description, locale) }}
+            {{ localize(step.description) }}
           </p>
         </article>
       </div>
@@ -46,17 +46,17 @@ usePageSeo({
           <div class="mt-8 space-y-4">
             <div
               v-for="document in documents"
-              :key="localize(document.title, locale)"
+              :key="localize(document.title)"
               class="rounded-xl border border-neutral-200 bg-neutral-50 p-5"
             >
               <h3 class="text-lg font-semibold text-neutral-900">
-                {{ localize(document.title, locale) }}
+                {{ localize(document.title) }}
               </h3>
               <p class="mt-2 text-sm leading-7 text-neutral-700">
-                {{ localize(document.description, locale) }}
+                {{ localize(document.description) }}
               </p>
               <p class="mt-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
-                {{ localize(document.status, locale) }}
+                {{ localize(document.status) }}
               </p>
             </div>
           </div>

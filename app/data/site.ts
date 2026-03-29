@@ -353,4 +353,4 @@ export const faqs = [
   },
 ]
 
-export const localize = (text: LocalizedText, locale: string) => text[locale as LocaleCode] ?? text.fr
+export const localize = (text: LocalizedText) => text.fr

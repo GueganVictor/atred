@@ -1,9 +1,5 @@
-<script setup lang="ts">
-const localeHead = useLocaleHead()
-</script>
-
 <template>
-  <Html :lang="localeHead.htmlAttrs?.lang">
+  <Html lang="fr">
     <Body>
       <NuxtRouteAnnouncer />
       <NuxtLayout>

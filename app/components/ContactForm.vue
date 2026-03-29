@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const { t } = useI18n()
+const t = useCopy()
 
 const form = reactive({
   company: '',

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { localize, recycledMaterials } from '~/data/site'
 
-const { locale, t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 usePageSeo({
   title: 'Matériaux recyclés',
@@ -38,7 +37,7 @@ usePageSeo({
           </h2>
           <p class="mt-2 text-base font-semibold text-brand-700">{{ material.size }}</p>
           <p class="mt-4 text-sm leading-7 text-neutral-700">
-            {{ localize(material.usage, locale) }}
+            {{ localize(material.usage) }}
           </p>
           <p class="mt-5 text-xs uppercase tracking-[0.14em] text-neutral-500">
             {{ t('materialsPage.indicativeDensity') }}: {{ material.density.toFixed(1) }} t/m³
@@ -59,10 +58,10 @@ usePageSeo({
           :description="t('materialsPage.ctaDescription')"
         />
         <div class="mt-8 flex flex-wrap gap-3">
-          <NuxtLink :to="localePath('/contact')" class="cta-primary">
+          <NuxtLink to="/contact" class="cta-primary">
             {{ t('actions.askQuote') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/dechets-inertes')" class="cta-secondary">
+          <NuxtLink to="/dechets-inertes" class="cta-secondary">
             {{ t('actions.checkAcceptedWaste') }}
           </NuxtLink>
         </div>

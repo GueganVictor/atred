@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { commitments, company, localize } from '~/data/site'
 
-const { locale, t } = useI18n()
+const t = useCopy()
 
 usePageSeo({
   title: 'L’entreprise',
@@ -52,12 +52,12 @@ usePageSeo({
           <div class="grid-card">
             <p class="eyebrow">{{ t('companyPage.commitmentsEyebrow') }}</p>
             <div class="mt-5 space-y-5">
-              <div v-for="commitment in commitments" :key="localize(commitment.title, locale)">
+              <div v-for="commitment in commitments" :key="localize(commitment.title)">
                 <h3 class="text-lg font-semibold text-neutral-900">
-                  {{ localize(commitment.title, locale) }}
+                  {{ localize(commitment.title) }}
                 </h3>
                 <p class="mt-2 text-sm leading-7 text-neutral-700">
-                  {{ localize(commitment.description, locale) }}
+                  {{ localize(commitment.description) }}
                 </p>
               </div>
             </div>

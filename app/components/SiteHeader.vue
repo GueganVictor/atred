@@ -1,22 +1,21 @@
 <script setup lang="ts">
-const { t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 const isOpen = ref(false)
 
 const navigation = computed(() => [
-  { label: t('nav.home'), to: localePath('/') },
-  { label: t('nav.company'), to: localePath('/entreprise') },
-  { label: t('nav.waste'), to: localePath('/dechets-inertes') },
-  { label: t('nav.materials'), to: localePath('/materiaux-recycles') },
-  { label: t('nav.process'), to: localePath('/procedure-documents') },
+  { label: t('nav.home'), to: '/' },
+  { label: t('nav.company'), to: '/entreprise' },
+  { label: t('nav.waste'), to: '/dechets-inertes' },
+  { label: t('nav.materials'), to: '/materiaux-recycles' },
+  { label: t('nav.process'), to: '/procedure-documents' },
 ])
 </script>
 
 <template>
   <header class="sticky top-0 z-50 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-md">
     <div class="container-shell flex min-h-18 items-center justify-between gap-4">
-      <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
+      <NuxtLink to="/" class="flex items-center gap-3">
         <img
           src="/images/logo-atred.png"
           :alt="t('company.name')"
@@ -36,7 +35,7 @@ const navigation = computed(() => [
       </nav>
 
       <div class="hidden lg:block">
-        <NuxtLink :to="localePath('/contact')" class="cta-primary">
+        <NuxtLink to="/contact" class="cta-primary">
           {{ t('actions.askQuote') }}
         </NuxtLink>
       </div>
@@ -62,11 +61,7 @@ const navigation = computed(() => [
         >
           {{ item.label }}
         </NuxtLink>
-        <NuxtLink
-          :to="localePath('/contact')"
-          class="cta-primary mt-2"
-          @click="isOpen = false"
-        >
+        <NuxtLink to="/contact" class="cta-primary mt-2" @click="isOpen = false">
           {{ t('actions.askQuote') }}
         </NuxtLink>
       </nav>

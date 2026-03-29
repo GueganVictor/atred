@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 defineProps<{
   title: string
@@ -24,10 +23,10 @@ defineProps<{
         </div>
 
         <div class="flex flex-wrap gap-3">
-          <NuxtLink :to="localePath('/contact')" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition hover:bg-neutral-100">
+          <NuxtLink to="/contact" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition hover:bg-neutral-100">
             {{ t('actions.contactUs') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/procedure-documents')" class="inline-flex items-center justify-center rounded-full border border-white/25 bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+          <NuxtLink to="/procedure-documents" class="inline-flex items-center justify-center rounded-full border border-white/25 bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
             {{ t('actions.viewProcess') }}
           </NuxtLink>
         </div>

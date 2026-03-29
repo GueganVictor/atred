@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { localize, rejectedMaterials, wasteCategories } from '~/data/site'
 
-const { locale, t } = useI18n()
-const localePath = useLocalePath()
+const t = useCopy()
 
 usePageSeo({
   title: 'Déchets inertes acceptés',
@@ -26,34 +25,34 @@ usePageSeo({
       <div class="grid gap-6 lg:grid-cols-2">
         <article
           v-for="category in wasteCategories"
-          :key="localize(category.title, locale)"
+          :key="localize(category.title)"
           class="grid-card overflow-hidden"
         >
           <div class="relative mb-6 overflow-hidden rounded-xl">
             <NuxtImg
               :src="category === wasteCategories[0] ? '/images/dechets-acceptes-1.jpg' : '/images/dechets-acceptes-2.jpg'"
-              :alt="localize(category.title, locale)"
+              :alt="localize(category.title)"
               class="h-56 w-full object-cover"
             />
           </div>
           <h2 class="font-display text-2xl font-semibold leading-tight text-neutral-900">
-            {{ localize(category.title, locale) }}
+            {{ localize(category.title) }}
           </h2>
           <p class="mt-4 text-sm leading-7 text-neutral-700">
-            {{ localize(category.description, locale) }}
+            {{ localize(category.description) }}
           </p>
           <ul class="mt-5 space-y-3">
             <li
               v-for="example in category.examples"
-              :key="localize(example, locale)"
+              :key="localize(example)"
               class="flex gap-3 rounded-xl bg-neutral-50 px-4 py-3 text-sm text-neutral-800"
             >
               <Icon name="ph:check-circle" class="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
-              <span>{{ localize(example, locale) }}</span>
+              <span>{{ localize(example) }}</span>
             </li>
           </ul>
           <p v-if="category.caution" class="mt-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm leading-7 text-brand-700">
-            {{ localize(category.caution, locale) }}
+            {{ localize(category.caution) }}
           </p>
         </article>
       </div>
@@ -69,10 +68,10 @@ usePageSeo({
           <ul class="mt-6 space-y-3">
             <li
               v-for="item in rejectedMaterials"
-              :key="localize(item, locale)"
+              :key="localize(item)"
               class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-neutral-100"
             >
-              {{ localize(item, locale) }}
+              {{ localize(item) }}
             </li>
           </ul>
         </div>
@@ -84,10 +83,10 @@ usePageSeo({
             :description="t('wastePage.validationDescription')"
           />
           <div class="mt-8 flex flex-wrap gap-3">
-            <NuxtLink :to="localePath('/contact')" class="cta-primary">
+            <NuxtLink to="/contact" class="cta-primary">
               {{ t('actions.contactUs') }}
             </NuxtLink>
-            <NuxtLink :to="localePath('/procedure-documents')" class="cta-secondary">
+            <NuxtLink to="/procedure-documents" class="cta-secondary">
               {{ t('actions.viewProcess') }}
             </NuxtLink>
           </div>
