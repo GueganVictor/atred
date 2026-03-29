@@ -61,24 +61,10 @@ export const company = {
 
 export const heroStats: Stat[] = [
   {
-    value: '20+',
+    value: '+500 tonnes de',
     label: {
-      fr: 'années d’activité sur le site de Keryvon',
-      en: 'years of activity on the Keryvon site',
-    },
-  },
-  {
-    value: 'ISDI',
-    label: {
-      fr: 'site de stockage et valorisation de déchets inertes',
-      en: 'inert waste storage and recovery site',
-    },
-  },
-  {
-    value: 'BTP',
-    label: {
-      fr: 'réponse pensée pour les entreprises de travaux et de démolition',
-      en: 'service designed for construction and demolition professionals',
+      fr: 'déchets inertes traités sur le site de Keryvon',
+      en: 'inert waste treated on the Keryvon site',
     },
   },
 ]

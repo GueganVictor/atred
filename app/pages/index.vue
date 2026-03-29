@@ -33,19 +33,6 @@ usePageSeo({
                 {{ t('actions.checkAcceptedWaste') }}
               </NuxtLink>
             </div>
-
-            <div class="mt-6 grid gap-3 sm:grid-cols-3">
-              <div
-                v-for="stat in heroStats"
-                :key="stat.value"
-                class="rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3"
-              >
-                <p class="font-display text-2xl font-semibold leading-none text-brand-700">{{ stat.value }}</p>
-                <p class="mt-1 text-xs leading-5 text-neutral-600">
-                  {{ localize(stat.label, locale) }}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
