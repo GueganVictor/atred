@@ -24,6 +24,7 @@ type Material = {
   slug: string
   name: string
   size: string
+  image: string
   usage: LocalizedText
   density: number
 }
@@ -180,6 +181,7 @@ export const recycledMaterials: Material[] = [
     slug: 'grave-0-20',
     name: 'Grave recyclée',
     size: '0/20',
+    image: '/images/material-grave-0-20.jpg',
     usage: {
       fr: 'Finition d’allées, couches de réglage et petits aménagements extérieurs.',
       en: 'Driveway finishing, levelling layers and small outdoor works.',
@@ -190,6 +192,7 @@ export const recycledMaterials: Material[] = [
     slug: 'grave-0-31-5',
     name: 'Grave recyclée',
     size: '0/31,5',
+    image: '/images/material-grave-0-31-5.jpg',
     usage: {
       fr: 'Sous-couches et plateformes techniques pour accès chantier ou voirie légère.',
       en: 'Sub-bases and technical platforms for site access or light roadworks.',
@@ -200,6 +203,7 @@ export const recycledMaterials: Material[] = [
     slug: 'grave-0-80',
     name: 'Grave recyclée',
     size: '0/80',
+    image: '/images/material-grave-0-80.jpg',
     usage: {
       fr: 'Remblais, chemins d’accès, couches d’assise et mises à niveau.',
       en: 'Fill, access roads, base layers and levelling works.',
@@ -210,6 +214,7 @@ export const recycledMaterials: Material[] = [
     slug: 'grave-0-120',
     name: 'Grave recyclée',
     size: '0/120',
+    image: '/images/material-grave-0-120.jpg',
     usage: {
       fr: 'Remblais lourds, plateformes industrielles et accès de chantier robustes.',
       en: 'Heavy fill, industrial platforms and robust site accesses.',

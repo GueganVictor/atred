@@ -25,8 +25,13 @@ usePageSeo({
     <section class="container-shell section-space pt-0">
       <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         <article v-for="material in recycledMaterials" :key="material.slug" class="grid-card">
-          <div class="rounded-xl bg-neutral-100 px-5 py-8 text-center">
-            <p class="font-display text-4xl font-semibold leading-none text-neutral-900">{{ material.size }}</p>
+          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100">
+            <NuxtImg
+              :src="material.image"
+              :alt="`${material.name} ${material.size}`"
+              class="h-44 w-full object-cover"
+              sizes="sm:100vw md:50vw xl:25vw"
+            />
           </div>
           <h2 class="mt-5 font-display text-2xl font-semibold leading-tight text-neutral-900">
             {{ material.name }}

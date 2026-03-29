@@ -76,42 +76,33 @@ usePageSeo({
             :title="t('home.processTitle')"
             :description="t('home.processDescription')"
           />
-          <div class="mt-8 grid gap-4">
+          <div class="mt-8 space-y-0">
             <div
               v-for="(step, index) in processSteps"
               :key="index"
-              class="rounded-xl border border-neutral-200 bg-neutral-50 p-5"
+              class="relative grid gap-4 pb-7 pl-14 last:pb-0"
             >
-              <p class="text-sm font-semibold text-brand-700">{{ `0${index + 1}` }}</p>
-              <h3 class="mt-2 text-lg font-semibold text-neutral-900">
-                {{ localize(step.title, locale) }}
-              </h3>
-              <p class="mt-2 text-sm leading-7 text-neutral-700">
-                {{ localize(step.description, locale) }}
-              </p>
+              <div
+                v-if="index !== processSteps.length - 1"
+                class="absolute left-[1.1rem] top-10 bottom-0 w-px bg-neutral-300"
+              />
+              <div class="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white">
+                {{ index + 1 }}
+              </div>
+              <div>
+                <h3 class="text-lg mt-1 font-semibold text-neutral-900">
+                  {{ localize(step.title, locale) }}
+                </h3>
+                <p class="mt-2 text-sm leading-7 text-neutral-700">
+                  {{ localize(step.description, locale) }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="space-y-6">
-          <div class="grid-card bg-neutral-100">
-            <p class="eyebrow">{{ t('home.commitmentsEyebrow') }}</p>
-            <h3 class="mt-3 font-display text-3xl font-semibold leading-tight text-neutral-900">
-              {{ t('home.commitmentsTitle') }}
-            </h3>
-            <div class="mt-6 space-y-4">
-              <div v-for="commitment in commitments" :key="localize(commitment.title, locale)">
-                <p class="text-base font-semibold text-neutral-900">
-                  {{ localize(commitment.title, locale) }}
-                </p>
-                <p class="mt-1 text-sm leading-7 text-neutral-700">
-                  {{ localize(commitment.description, locale) }}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="grid-card border-brand-100 bg-brand-50">
+        <div class="grid-card border-brand-100 bg-brand-50">
             <p class="eyebrow">{{ t('home.materialsEyebrow') }}</p>
             <h3 class="mt-3 font-display text-3xl font-semibold leading-tight text-neutral-900">
               {{ t('home.materialsTitle') }}
@@ -120,8 +111,14 @@ usePageSeo({
               <div
                 v-for="material in recycledMaterials"
                 :key="material.slug"
-                class="flex items-start justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3"
+                class="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white px-4 py-3"
               >
+                <NuxtImg
+                  :src="material.image"
+                  :alt="`${material.name} ${material.size}`"
+                  class="h-16 w-16 shrink-0 rounded-lg object-cover"
+                  sizes="64px"
+                />
                 <div>
                   <p class="font-semibold text-neutral-900">{{ material.name }} {{ material.size }}</p>
                   <p class="mt-1 text-sm leading-6 text-neutral-700">
@@ -133,7 +130,7 @@ usePageSeo({
             <NuxtLink :to="localePath('/materiaux-recycles')" class="cta-secondary mt-6">
               {{ t('actions.viewMaterials') }}
             </NuxtLink>
-          </div>
+          </div>          
         </div>
       </div>
     </section>
