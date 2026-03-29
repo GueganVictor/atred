@@ -5,7 +5,8 @@ const t = useCopy()
 
 usePageSeo({
   title: 'L’entreprise',
-  description: 'Découvrez le site de Keryvon, l’ancrage territorial d’ATRED Valorisation et son approche centrée sur la valorisation et la traçabilité des matériaux inertes.',
+  description:
+    'Découvrez le site de Keryvon, l’ancrage territorial d’ATRED Valorisation et son approche centrée sur la valorisation et la traçabilité des matériaux inertes.',
   path: '/entreprise',
   image: '/images/about-site.jpg',
 })
@@ -29,7 +30,9 @@ usePageSeo({
             :title="t('companyPage.storyTitle')"
             :description="t('companyPage.storyDescription')"
           />
-          <div class="mt-8 space-y-5 text-sm leading-8 text-neutral-700 sm:text-base">
+          <div
+            class="mt-8 space-y-5 text-sm/8  text-neutral-700 sm:text-base"
+          >
             <p>{{ t('companyPage.storyParagraph1') }}</p>
             <p>{{ t('companyPage.storyParagraph2') }}</p>
             <p>{{ t('companyPage.storyParagraph3') }}</p>
@@ -38,11 +41,13 @@ usePageSeo({
 
         <div class="space-y-6">
           <div class="grid-card bg-neutral-900 text-white">
-            <p class="eyebrow text-brand-100">{{ t('companyPage.siteEyebrow') }}</p>
-            <h3 class="mt-3 font-display text-3xl font-semibold leading-tight">
+            <p class="eyebrow text-brand-100">
+              {{ t('companyPage.siteEyebrow') }}
+            </p>
+            <h3 class="mt-3 font-display text-3xl/tight font-semibold ">
               {{ t('companyPage.siteTitle') }}
             </h3>
-            <div class="mt-5 space-y-3 text-sm leading-7 text-neutral-100">
+            <div class="mt-5 space-y-3 text-sm/7  text-neutral-100">
               <p>{{ company.location }}</p>
               <p>{{ company.serviceArea }}</p>
               <p>{{ t('companyPage.siteHint') }}</p>
@@ -52,11 +57,14 @@ usePageSeo({
           <div class="grid-card">
             <p class="eyebrow">{{ t('companyPage.commitmentsEyebrow') }}</p>
             <div class="mt-5 space-y-5">
-              <div v-for="commitment in commitments" :key="localize(commitment.title)">
+              <div
+                v-for="commitment in commitments"
+                :key="localize(commitment.title)"
+              >
                 <h3 class="text-lg font-semibold text-neutral-900">
                   {{ localize(commitment.title) }}
                 </h3>
-                <p class="mt-2 text-sm leading-7 text-neutral-700">
+                <p class="mt-2 text-sm/7  text-neutral-700">
                   {{ localize(commitment.description) }}
                 </p>
               </div>
@@ -66,6 +74,9 @@ usePageSeo({
       </div>
     </section>
 
-    <CtaBanner :title="t('companyPage.ctaTitle')" :description="t('companyPage.ctaDescription')" />
+    <CtaBanner
+      :title="t('companyPage.ctaTitle')"
+      :description="t('companyPage.ctaDescription')"
+    />
   </div>
 </template>

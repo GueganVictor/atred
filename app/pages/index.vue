@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import { company, commitments, heroStats, localize, processSteps, recycledMaterials, services } from '~/data/site'
+import { useCopy } from '~/composables/useCopy'
+import {
+  company,
+  localize,
+  processSteps,
+  recycledMaterials,
+  services,
+} from '~/data/site'
 
 const t = useCopy()
 
 usePageSeo({
   title: 'Valorisation et stockage de déchets inertes',
-  description: 'ATRED Valorisation accompagne les entreprises du BTP pour la réception, la valorisation et le stockage réglementé de déchets inertes à Languidic.',
+  description:
+    'ATRED Valorisation accompagne les entreprises du BTP pour la réception, la valorisation et le stockage réglementé de déchets inertes à Languidic.',
   path: '/',
 })
 </script>
@@ -14,14 +22,22 @@ usePageSeo({
   <div>
     <section class="container-shell py-6 sm:py-8 lg:py-10">
       <div class="grid items-stretch gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-        <div class="surface-panel relative overflow-hidden px-6 py-6 sm:px-8 sm:py-7">
-          <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(12,65,58,0.05),transparent_60%)]" />
+        <div
+          class="surface-panel relative overflow-hidden p-6  sm:px-8 sm:py-7"
+        >
+          <div
+            class="absolute inset-0 bg-[linear-gradient(135deg,rgba(12,65,58,0.05),transparent_60%)]"
+          />
           <div class="relative max-w-2xl">
             <p class="eyebrow">{{ t('home.heroEyebrow') }}</p>
-            <h1 class="mt-3 max-w-3xl font-display text-3xl font-semibold leading-tight text-neutral-900 sm:text-4xl lg:text-[2.85rem]">
+            <h1
+              class="mt-3 max-w-3xl font-display text-3xl/tight font-semibold  text-neutral-900 sm:text-4xl lg:text-[2.85rem]"
+            >
               {{ t('home.heroTitle') }}
             </h1>
-            <p class="mt-4 max-w-2xl text-sm leading-7 text-neutral-700 sm:text-base">
+            <p
+              class="mt-4 max-w-2xl text-sm/7  text-neutral-700 sm:text-base"
+            >
               {{ t('home.heroDescription') }}
             </p>
             <div class="mt-6 flex flex-wrap gap-3">
@@ -35,14 +51,18 @@ usePageSeo({
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-[1.5rem] border border-neutral-200 shadow-[0_16px_40px_-28px_rgba(24,33,30,0.3)]">
+        <div
+          class="relative overflow-hidden rounded-3xl border border-neutral-200 shadow-[0_16px_40px_-28px_rgba(24,33,30,0.3)]"
+        >
           <NuxtImg
             src="/images/hero-site.jpg"
             :alt="t('home.heroImageAlt')"
-            class="h-full min-h-[18rem] object-contain"
+            class="h-full min-h-72 object-contain"
             sizes="sm:100vw lg:50vw"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/35 via-transparent to-transparent" />
+          <div
+            class="absolute inset-0 bg-linear-to-t from-neutral-900/35 via-transparent to-transparent"
+          />
         </div>
       </div>
     </section>
@@ -55,12 +75,18 @@ usePageSeo({
       />
 
       <div class="mt-10 grid gap-5 lg:grid-cols-3">
-        <article v-for="service in services" :key="service.icon" class="grid-card">
-          <Icon :name="service.icon" class="h-9 w-9 text-brand-600" />
-          <h3 class="mt-5 font-display text-2xl font-semibold leading-tight text-neutral-900">
+        <article
+          v-for="service in services"
+          :key="service.icon"
+          class="grid-card"
+        >
+          <Icon :name="service.icon" class="size-9  text-brand-600" />
+          <h3
+            class="mt-5 font-display text-2xl/tight font-semibold  text-neutral-900"
+          >
             {{ localize(service.title) }}
           </h3>
-          <p class="mt-4 text-sm leading-7 text-neutral-700">
+          <p class="mt-4 text-sm/7  text-neutral-700">
             {{ localize(service.description) }}
           </p>
         </article>
@@ -85,14 +111,16 @@ usePageSeo({
                 v-if="index !== processSteps.length - 1"
                 class="absolute left-[1.1rem] top-10 bottom-0 w-px bg-neutral-300"
               />
-              <div class="absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white">
+              <div
+                class="absolute left-0 top-0 flex size-9  items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white"
+              >
                 {{ index + 1 }}
               </div>
               <div>
                 <h3 class="text-lg mt-1 font-semibold text-neutral-900">
                   {{ localize(step.title) }}
                 </h3>
-                <p class="mt-2 text-sm leading-7 text-neutral-700">
+                <p class="mt-2 text-sm/7  text-neutral-700">
                   {{ localize(step.description) }}
                 </p>
               </div>
@@ -101,9 +129,11 @@ usePageSeo({
         </div>
 
         <div class="space-y-6">
-        <div class="grid-card border-brand-100 bg-brand-50">
+          <div class="grid-card border-brand-100 bg-brand-50">
             <p class="eyebrow">{{ t('home.materialsEyebrow') }}</p>
-            <h3 class="mt-3 font-display text-3xl font-semibold leading-tight text-neutral-900">
+            <h3
+              class="mt-3 font-display text-3xl/tight font-semibold  text-neutral-900"
+            >
               {{ t('home.materialsTitle') }}
             </h3>
             <div class="mt-6 space-y-4">
@@ -115,12 +145,14 @@ usePageSeo({
                 <NuxtImg
                   :src="material.image"
                   :alt="`${material.name} ${material.size}`"
-                  class="h-16 w-16 shrink-0 rounded-lg object-cover"
+                  class="size-16  shrink-0 rounded-lg object-cover"
                   sizes="64px"
                 />
                 <div>
-                  <p class="font-semibold text-neutral-900">{{ material.name }} {{ material.size }}</p>
-                  <p class="mt-1 text-sm leading-6 text-neutral-700">
+                  <p class="font-semibold text-neutral-900">
+                    {{ material.name }} {{ material.size }}
+                  </p>
+                  <p class="mt-1 text-sm/6  text-neutral-700">
                     {{ localize(material.usage) }}
                   </p>
                 </div>
@@ -129,7 +161,7 @@ usePageSeo({
             <NuxtLink to="/materiaux-recycles" class="cta-secondary mt-6">
               {{ t('actions.viewMaterials') }}
             </NuxtLink>
-          </div>          
+          </div>
         </div>
       </div>
     </section>

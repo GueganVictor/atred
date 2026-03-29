@@ -7,7 +7,10 @@ export const usePageSeo = (options: {
   const config = useRuntimeConfig()
   const title = `${options.title} | ${config.public.companyName}`
   const url = new URL(options.path ?? '/', config.public.siteUrl).toString()
-  const image = new URL(options.image ?? '/images/hero-site.jpg', config.public.siteUrl).toString()
+  const image = new URL(
+    options.image ?? '/images/hero-site.jpg',
+    config.public.siteUrl,
+  ).toString()
 
   useSeoMeta({
     title,

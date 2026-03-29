@@ -13,14 +13,18 @@ const navigation = computed(() => [
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-md">
-    <div class="container-shell flex min-h-18 items-center justify-between gap-4">
+  <header
+    class="sticky top-0 z-50 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-md"
+  >
+    <div
+      class="container-shell flex min-h-18 items-center justify-between gap-4"
+    >
       <NuxtLink to="/" class="flex items-center gap-3">
         <img
           src="/images/logo-atred.png"
           :alt="t('company.name')"
           class="h-12 p-1.5"
-        >
+        />
       </NuxtLink>
 
       <nav class="hidden items-center gap-7 lg:flex">
@@ -42,11 +46,11 @@ const navigation = computed(() => [
 
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 lg:hidden"
+        class="inline-flex size-11  items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 lg:hidden"
         :aria-label="t('actions.openMenu')"
         @click="isOpen = !isOpen"
       >
-        <Icon :name="isOpen ? 'ph:x' : 'ph:list'" class="h-5 w-5" />
+        <Icon :name="isOpen ? 'ph:x' : 'ph:list'" class="size-5 " />
       </button>
     </div>
 
@@ -61,7 +65,11 @@ const navigation = computed(() => [
         >
           {{ item.label }}
         </NuxtLink>
-        <NuxtLink to="/contact" class="cta-primary mt-2" @click="isOpen = false">
+        <NuxtLink
+          to="/contact"
+          class="cta-primary mt-2"
+          @click="isOpen = false"
+        >
           {{ t('actions.askQuote') }}
         </NuxtLink>
       </nav>

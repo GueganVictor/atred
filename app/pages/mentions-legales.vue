@@ -17,7 +17,7 @@ usePageSeo({
         :description="t('legal.description')"
       />
 
-      <div class="mt-8 space-y-6 text-sm leading-8 text-neutral-700">
+      <div class="mt-8 space-y-6 text-sm/8  text-neutral-700">
         <p>{{ t('legal.placeholder1') }}</p>
         <p>{{ t('legal.placeholder2') }}</p>
         <p>{{ t('legal.placeholder3') }}</p>

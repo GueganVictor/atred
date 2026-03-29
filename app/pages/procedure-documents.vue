@@ -5,7 +5,8 @@ const t = useCopy()
 
 usePageSeo({
   title: 'Procédure et documents',
-  description: 'Comprenez les étapes d’admission, de pesée, de dépôt et de traçabilité avant d’arriver sur le site ATRED.',
+  description:
+    'Comprenez les étapes d’admission, de pesée, de dépôt et de traçabilité avant d’arriver sur le site ATRED.',
   path: '/procedure-documents',
   image: '/images/bsdi-document.png',
 })
@@ -23,12 +24,20 @@ usePageSeo({
 
     <section class="container-shell section-space pt-0">
       <div class="grid gap-5 lg:grid-cols-4">
-        <article v-for="(step, index) in processSteps" :key="index" class="grid-card">
-          <p class="font-display text-4xl font-semibold leading-none text-brand-500">{{ `0${index + 1}` }}</p>
+        <article
+          v-for="(step, index) in processSteps"
+          :key="index"
+          class="grid-card"
+        >
+          <p
+            class="font-display text-4xl font-semibold leading-none text-brand-500"
+          >
+            {{ `0${index + 1}` }}
+          </p>
           <h2 class="mt-5 text-lg font-semibold text-neutral-900">
             {{ localize(step.title) }}
           </h2>
-          <p class="mt-3 text-sm leading-7 text-neutral-700">
+          <p class="mt-3 text-sm/7  text-neutral-700">
             {{ localize(step.description) }}
           </p>
         </article>
@@ -52,10 +61,12 @@ usePageSeo({
               <h3 class="text-lg font-semibold text-neutral-900">
                 {{ localize(document.title) }}
               </h3>
-              <p class="mt-2 text-sm leading-7 text-neutral-700">
+              <p class="mt-2 text-sm/7  text-neutral-700">
                 {{ localize(document.description) }}
               </p>
-              <p class="mt-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
+              <p
+                class="mt-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700"
+              >
                 {{ localize(document.status) }}
               </p>
             </div>
@@ -63,11 +74,13 @@ usePageSeo({
         </div>
 
         <div class="grid-card bg-neutral-900 text-white">
-          <p class="eyebrow text-brand-100">{{ t('processPage.reminderEyebrow') }}</p>
-          <h2 class="mt-3 font-display text-3xl font-semibold leading-tight">
+          <p class="eyebrow text-brand-100">
+            {{ t('processPage.reminderEyebrow') }}
+          </p>
+          <h2 class="mt-3 font-display text-3xl/tight font-semibold ">
             {{ t('processPage.reminderTitle') }}
           </h2>
-          <p class="mt-4 text-sm leading-7 text-neutral-100">
+          <p class="mt-4 text-sm/7  text-neutral-100">
             {{ t('processPage.reminderDescription') }}
           </p>
         </div>

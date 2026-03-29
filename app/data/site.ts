@@ -52,8 +52,10 @@ export const company = {
   phoneDisplay: '+33 6 85 05 54 39',
   phoneLink: 'tel:+33685055439',
   email: 'isdi@atredvalorisation.fr',
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Keryvon+56440+Languidic',
-  serviceArea: 'Morbihan, Lorient, Hennebont, Lanester, Languidic et chantiers du bassin sud Bretagne',
+  mapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=Keryvon+56440+Languidic',
+  serviceArea:
+    'Morbihan, Lorient, Hennebont, Lanester, Languidic et chantiers du bassin sud Bretagne',
   hours: [
     'Lundi au vendredi : 8h00 - 12h00 / 13h30 - 17h30',
     'Accueil chantier sur confirmation préalable',

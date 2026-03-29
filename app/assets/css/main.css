@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
 
 @theme {
   --color-brand-50: #eef6f5;
@@ -24,8 +24,8 @@
   --color-neutral-800: #25312d;
   --color-neutral-900: #18211e;
 
-  --font-sans: "Plus Jakarta Sans", "Segoe UI", sans-serif;
-  --font-display: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-display: 'IBM Plex Sans', 'Segoe UI', sans-serif;
 }
 
 @layer base {

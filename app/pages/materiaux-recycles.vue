@@ -5,7 +5,8 @@ const t = useCopy()
 
 usePageSeo({
   title: 'Matériaux recyclés',
-  description: 'Découvrez les graves recyclées proposées par ATRED pour remblais, sous-couches et accès de chantier.',
+  description:
+    'Découvrez les graves recyclées proposées par ATRED pour remblais, sous-couches et accès de chantier.',
   path: '/materiaux-recycles',
   image: '/images/materials-hero.png',
 })
@@ -23,8 +24,14 @@ usePageSeo({
 
     <section class="container-shell section-space pt-0">
       <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        <article v-for="material in recycledMaterials" :key="material.slug" class="grid-card">
-          <div class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100">
+        <article
+          v-for="material in recycledMaterials"
+          :key="material.slug"
+          class="grid-card"
+        >
+          <div
+            class="overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100"
+          >
             <NuxtImg
               :src="material.image"
               :alt="`${material.name} ${material.size}`"
@@ -32,15 +39,20 @@ usePageSeo({
               sizes="sm:100vw md:50vw xl:25vw"
             />
           </div>
-          <h2 class="mt-5 font-display text-2xl font-semibold leading-tight text-neutral-900">
+          <h2
+            class="mt-5 font-display text-2xl/tight font-semibold  text-neutral-900"
+          >
             {{ material.name }}
           </h2>
-          <p class="mt-2 text-base font-semibold text-brand-700">{{ material.size }}</p>
-          <p class="mt-4 text-sm leading-7 text-neutral-700">
+          <p class="mt-2 text-base font-semibold text-brand-700">
+            {{ material.size }}
+          </p>
+          <p class="mt-4 text-sm/7  text-neutral-700">
             {{ localize(material.usage) }}
           </p>
           <p class="mt-5 text-xs uppercase tracking-[0.14em] text-neutral-500">
-            {{ t('materialsPage.indicativeDensity') }}: {{ material.density.toFixed(1) }} t/m³
+            {{ t('materialsPage.indicativeDensity') }}:
+            {{ material.density.toFixed(1) }} t/m³
           </p>
         </article>
       </div>

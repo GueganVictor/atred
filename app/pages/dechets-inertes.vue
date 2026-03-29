@@ -5,7 +5,8 @@ const t = useCopy()
 
 usePageSeo({
   title: 'Déchets inertes acceptés',
-  description: 'Consultez les familles de matériaux inertes acceptées sur le site ATRED et les cas qui nécessitent une validation préalable.',
+  description:
+    'Consultez les familles de matériaux inertes acceptées sur le site ATRED et les cas qui nécessitent une validation préalable.',
   path: '/dechets-inertes',
   image: '/images/dechets-acceptes-1.jpg',
 })
@@ -30,15 +31,21 @@ usePageSeo({
         >
           <div class="relative mb-6 overflow-hidden rounded-xl">
             <NuxtImg
-              :src="category === wasteCategories[0] ? '/images/dechets-acceptes-1.jpg' : '/images/dechets-acceptes-2.jpg'"
+              :src="
+                category === wasteCategories[0]
+                  ? '/images/dechets-acceptes-1.jpg'
+                  : '/images/dechets-acceptes-2.jpg'
+              "
               :alt="localize(category.title)"
               class="h-56 w-full object-cover"
             />
           </div>
-          <h2 class="font-display text-2xl font-semibold leading-tight text-neutral-900">
+          <h2
+            class="font-display text-2xl/tight font-semibold  text-neutral-900"
+          >
             {{ localize(category.title) }}
           </h2>
-          <p class="mt-4 text-sm leading-7 text-neutral-700">
+          <p class="mt-4 text-sm/7  text-neutral-700">
             {{ localize(category.description) }}
           </p>
           <ul class="mt-5 space-y-3">
@@ -47,11 +54,17 @@ usePageSeo({
               :key="localize(example)"
               class="flex gap-3 rounded-xl bg-neutral-50 px-4 py-3 text-sm text-neutral-800"
             >
-              <Icon name="ph:check-circle" class="mt-0.5 h-5 w-5 shrink-0 text-brand-600" />
+              <Icon
+                name="ph:check-circle"
+                class="mt-0.5 size-5  shrink-0 text-brand-600"
+              />
               <span>{{ localize(example) }}</span>
             </li>
           </ul>
-          <p v-if="category.caution" class="mt-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm leading-7 text-brand-700">
+          <p
+            v-if="category.caution"
+            class="mt-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm/7  text-brand-700"
+          >
             {{ localize(category.caution) }}
           </p>
         </article>
@@ -61,8 +74,10 @@ usePageSeo({
     <section class="container-shell section-space pt-0">
       <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="grid-card bg-neutral-900 text-white">
-          <p class="eyebrow text-brand-100">{{ t('wastePage.rejectedEyebrow') }}</p>
-          <h2 class="mt-3 font-display text-3xl font-semibold leading-tight">
+          <p class="eyebrow text-brand-100">
+            {{ t('wastePage.rejectedEyebrow') }}
+          </p>
+          <h2 class="mt-3 font-display text-3xl/tight font-semibold ">
             {{ t('wastePage.rejectedTitle') }}
           </h2>
           <ul class="mt-6 space-y-3">
