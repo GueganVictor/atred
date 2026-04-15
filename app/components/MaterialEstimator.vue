@@ -1,49 +1,12 @@
-<script setup lang="ts">
-import { recycledMaterials, localize } from '~/data/site'
-
-const t = useCopy()
-
-const materialSlug = ref(
-  recycledMaterials[2]?.slug ?? recycledMaterials[0].slug,
-)
-const length = ref<number | null>(null)
-const width = ref<number | null>(null)
-const thicknessCm = ref<number | null>(null)
-
-const selectedMaterial = computed(() => {
-  return (
-    recycledMaterials.find(
-      (material) => material.slug === materialSlug.value,
-    ) ?? recycledMaterials[0]
-  )
-})
-
-const volume = computed(() => {
-  if (!length.value || !width.value || !thicknessCm.value) {
-    return 0
-  }
-
-  if (length.value <= 0 || width.value <= 0 || thicknessCm.value <= 0) {
-    return 0
-  }
-
-  return length.value * width.value * (thicknessCm.value / 100)
-})
-
-const tonnage = computed(() => volume.value * selectedMaterial.value.density)
-</script>
-
 <template>
-  <div
-    class="grid-card overflow-hidden border-neutral-200 bg-brand-700 text-white"
-  >
+  <AppCard class="overflow-hidden border-neutral-200! bg-brand-700! text-white">
     <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
       <div>
-        <p class="eyebrow text-brand-100">{{ t('estimator.eyebrow') }}</p>
-        <h3 class="mt-3 font-display text-3xl/tight font-semibold ">
+        <AppEyebrow tone="inverse">{{ t('estimator.eyebrow') }}</AppEyebrow>
+        <h3 class="mt-3 font-display text-3xl/tight font-semibold">
           {{ t('estimator.title') }}
         </h3>
-        <p class="mt-4 text-sm/7  text-neutral-100">
+        <p class="mt-4 text-sm/7 text-neutral-100">
           {{ t('estimator.description') }}
         </p>
       </div>
@@ -55,14 +18,21 @@ const tonnage = computed(() => volume.value * selectedMaterial.value.density)
             v-model="materialSlug"
             class="w-full rounded-xl border border-white/15 bg-white/8 px-4 py-3 text-white outline-none"
           >
-            <option
-              v-for="material in recycledMaterials"
-              :key="material.slug"
-              :value="material.slug"
+            <optgroup
+              v-for="category in groupedMaterials"
+              :key="category.slug"
+              :label="localize(category.title)"
               class="text-neutral-900"
             >
-              {{ material.name }} {{ material.size }}
-            </option>
+              <option
+                v-for="material in category.items"
+                :key="material.slug"
+                :value="material.slug"
+                class="text-neutral-900"
+              >
+                {{ materialLabel(material) }}
+              </option>
+            </optgroup>
           </select>
         </label>
 
@@ -129,8 +99,56 @@ const tonnage = computed(() => volume.value * selectedMaterial.value.density)
       </div>
     </div>
 
-    <p class="mt-4 text-xs/6  text-neutral-200">
+    <p class="mt-4 text-xs/6 text-neutral-200">
       {{ t('estimator.disclaimer') }}
     </p>
-  </div>
+  </AppCard>
 </template>
+
+<script setup lang="ts">
+import {
+  localize,
+  materialCategories,
+  materialLabel,
+  materialsCatalog,
+} from '~/data/site'
+
+const t = useCopy()
+
+const groupedMaterials = computed(() =>
+  materialCategories
+    .map((category) => ({
+      ...category,
+      items: materialsCatalog.filter(
+        (material) => material.category === category.slug,
+      ),
+    }))
+    .filter((category) => category.items.length > 0),
+)
+
+const materialSlug = ref(materialsCatalog[2]?.slug ?? materialsCatalog[0].slug)
+const length = ref<number | null>(null)
+const width = ref<number | null>(null)
+const thicknessCm = ref<number | null>(null)
+
+const selectedMaterial = computed(() => {
+  return (
+    materialsCatalog.find((material) => material.slug === materialSlug.value) ??
+    materialsCatalog[0]
+  )
+})
+
+const volume = computed(() => {
+  if (!length.value || !width.value || !thicknessCm.value) {
+    return 0
+  }
+
+  if (length.value <= 0 || width.value <= 0 || thicknessCm.value <= 0) {
+    return 0
+  }
+
+  return length.value * width.value * (thicknessCm.value / 100)
+})
+
+const tonnage = computed(() => volume.value * selectedMaterial.value.density)
+</script>

@@ -3,28 +3,30 @@ const messages = {
     home: 'Accueil',
     company: "L'entreprise",
     waste: 'Déchets inertes',
-    materials: 'Matériaux recyclés',
-    process: 'Procédure & documents',
+    materials: 'Matériaux',
+    process: 'Admission & documents',
     contact: 'Contact',
   },
   actions: {
     askQuote: 'Demander un devis',
     contactUs: 'Nous contacter',
-    viewProcess: 'Voir la procédure',
+    viewProcess: "Voir les modalités d'admission",
     viewMaterials: 'Voir les matériaux',
     checkAcceptedWaste: 'Vérifier les matériaux acceptés',
+    dropWaste: 'Déposer des déchets inertes',
+    buyMaterials: 'Acheter des matériaux',
     sendRequest: 'Envoyer la demande',
     openMenu: 'Ouvrir le menu',
     openMap: "Voir l'accès au site",
   },
   common: {
-    needHelp: "Besoin d'un échange rapide ?",
+    needHelp: 'Un besoin chantier ?',
   },
   company: {
     name: 'ATRED Valorisation',
-    taglineShort: 'Valorisation & stockage réglementé',
+    taglineShort: 'Déchets inertes & matériaux chantier',
     taglineLong:
-      'Plateforme dédiée aux déchets inertes du BTP, à leur valorisation matière et à leur traçabilité réglementaire.',
+      'Plateforme dédiée à la prise en charge des déchets inertes du BTP et à la vente de graves issues du recyclage, sable et graviers pour les chantiers, avec admission cadrée et traçabilité réglementaire.',
   },
   footer: {
     navigation: 'Navigation',
@@ -32,100 +34,107 @@ const messages = {
     legal: 'Mentions légales',
   },
   home: {
-    heroEyebrow: 'Plateforme de valorisation pour le BTP',
+    heroEyebrow: 'Plateforme chantier à Languidic',
     heroTitle:
-      'Vos déchets inertes méritent une filière claire, locale et réglementée.',
-    heroDescription:
-      'ATRED Valorisation accompagne les entreprises du bâtiment, des travaux publics et de la démolition pour la réception, la valorisation et le stockage de matériaux inertes sur le site de Keryvon.',
-    heroImageAlt: 'Vue du site de valorisation ATRED',
-    servicesEyebrow: 'Ce que nous faisons',
-    servicesTitle: 'Une réponse simple pour déposer, valoriser et réemployer.',
-    servicesDescription:
-      'Le site a été pensé pour répondre aux attentes terrain des entreprises de travaux: lisibilité, conformité, rapidité de prise de contact et matériaux recyclés réutilisables.',
-    processEyebrow: "Avant d'arriver sur site",
-    processTitle: 'Un process court, mais cadré.',
-    processDescription:
-      'Nous sécurisons la compatibilité du chargement, la pesée et le suivi des matériaux afin de protéger le site et vos opérations.',
-    commitmentsEyebrow: 'Pourquoi ATRED',
-    commitmentsTitle: 'Une logique de chantier, pas un discours générique.',
-    materialsEyebrow: 'Matériaux disponibles',
-    materialsTitle: 'Des graves recyclées pour vos remblais et accès chantier.',
-    ctaTitle: 'Validez votre besoin avant déplacement',
+      'Un même site pour acheter vos matériaux et déposer vos déchets inertes.',
+    heroIntro:
+      "Graves recyclées, sable, graviers issus du recyclage et de carrière. Dépôt de terres, déblais et gravats inertes compatibles — admission confirmée avant transport.",
+    heroMaterialsLabel: 'Matériaux à la vente',
+    heroMaterialsTitle:
+      'Graves recyclées, sable et graviers pour les besoins courants du chantier.',
+    heroMaterialsDescription:
+      'Deux familles de matériaux disponibles pour remblais, couches d’assise, réglage, drainage et accès chantier.',
+    heroMaterialsDetail:
+      "Nous confirmons avec vous la famille de matériau, la granulométrie, le tonnage et le mode d'enlèvement selon le stock et l'usage chantier.",
+    heroWasteLabel: 'Dépôt de déchets inertes',
+    heroWasteTitle:
+      'Terres, déblais et gravats de chantier compatibles et admis après vérification.',
+    heroWasteDescription:
+      "Nous confirmons la compatibilité du chargement avant arrivée afin de fluidifier l'accueil, la pesée et la prise en charge sur site.",
+    heroWasteAdmissionNote:
+      "Admission confirmée avant transport selon la nature du chargement, son origine chantier et l'absence d'éléments non inertes.",
+    heroWasteDetail:
+      "Terres inertes, déblais, béton, briques, tuiles et matériaux minéraux compatibles peuvent être orientés sur site après validation préalable.",
+    ctaTitle: 'Un chargement à faire admettre ou un tonnage à réserver ?',
+    ctaDescription:
+      "Contactez-nous pour confirmer l'admission d'un dépôt, la disponibilité d'un matériau et les modalités d'accès au site.",
   },
   companyPage: {
-    eyebrow: 'Le site et son rôle',
+    eyebrow: 'Le site et ses offres',
     title:
-      'Une plateforme ancrée à Languidic pour gérer les matériaux inertes avec méthode.',
+      'À Languidic, ATRED traite les déchets inertes et fournit des matériaux pour les chantiers.',
     description:
-      "ATRED Valorisation s'inscrit dans la continuité du site de Keryvon, avec une approche plus structurée de la valorisation matière, de la réception chantier et de la traçabilité.",
+      "ATRED Valorisation prolonge l'activité du site de Keryvon avec une réponse terrain claire: prise en charge des matériaux inertes entrants, vente de graves issues du recyclage, de sable et de graviers, et admission encadrée.",
     imageAlt: 'Pelleteuse et zone de traitement sur le site',
-    storyEyebrow: 'Notre histoire',
-    storyTitle: 'Du stockage à la valorisation.',
+    storyEyebrow: 'Une activité de terrain',
+    storyTitle: 'Du site historique à une offre complète pour les chantiers.',
     storyDescription:
-      "Le site s'est développé autour d'un besoin simple: proposer une solution claire aux professionnels qui doivent traiter leurs déblais et gravats dans un cadre maîtrisé.",
+      "Le site s'est développé autour d'un besoin simple: proposer aux entreprises locales une solution claire pour traiter leurs déchets inertes et retrouver des matériaux utiles sur leurs chantiers.",
     storyParagraph1:
       "Le site de Keryvon accompagne depuis plus de vingt ans les flux de matériaux inertes issus des chantiers locaux. Cette expérience constitue aujourd'hui la base opérationnelle d'ATRED Valorisation.",
     storyParagraph2:
-      "L'évolution de l'activité vise à privilégier autant que possible la valorisation des matériaux compatibles, afin de prolonger leur cycle de vie sur de nouveaux usages techniques.",
+      "L'évolution de l'activité vise à proposer une filière locale pour les déblais et gravats compatibles, puis à mettre à disposition des graves issues du recyclage ainsi que du sable et des graviers pour remblais, couches d'assise, réglage et besoins courants de chantier.",
     storyParagraph3:
-      "Cette approche s'appuie sur une réception cadrée, des vérifications préalables et une relation directe avec les entreprises du territoire.",
+      "Cette approche s'appuie sur une admission cadrée, des vérifications préalables et une relation directe avec les entreprises du territoire pour sécuriser la prise en charge comme la fourniture matière.",
     siteEyebrow: 'Le site de Keryvon',
-    siteTitle: 'Un outil local au service des chantiers bretons.',
+    siteTitle: 'Un outil local pour déposer et se fournir.',
     siteHint:
-      "Accès, horaires et modalités d'admission sont confirmés au cas par cas selon la nature du chantier et des matériaux.",
-    commitmentsEyebrow: 'Nos engagements',
-    ctaTitle: 'Vous avez un chantier à préparer ?',
+      "Accès, horaires, nature des matériaux et disponibilités sont confirmés selon le chantier, le stock et le mode d'enlèvement.",
+    commitmentsEyebrow: 'Pourquoi travailler avec nous',
+    ctaTitle: 'Déchets inertes à déposer ou matériaux à acheter ?',
     ctaDescription:
-      "Nous pouvons confirmer la compatibilité d'un chargement, préparer une réception ou étudier un besoin en matériaux recyclés.",
+      "Nous pouvons confirmer l'admission d'un chargement, orienter vos déblais et préparer une mise à disposition de graves issues du recyclage, de sable ou de graviers selon le stock.",
   },
   wastePage: {
-    eyebrow: 'Admission des déchets inertes',
-    title: 'Identifier rapidement ce qui peut être pris en charge sur le site.',
+    eyebrow: 'Traitement des déchets inertes',
+    title:
+      'Identifier rapidement les matériaux que nous pouvons prendre en charge sur le site.',
     description:
-      'Les matériaux admis doivent rester conformes au périmètre réglementaire du site. En cas de doute, une validation préalable est indispensable avant transport.',
+      'ATRED reçoit les terres, déblais et gravats inertes compatibles avec les autorisations du site. En cas de doute, une validation préalable reste indispensable avant transport.',
     imageAlt: 'Matériaux inertes acceptés sur la plateforme',
     rejectedEyebrow: 'À exclure ou confirmer',
-    rejectedTitle: 'Les matières qui nécessitent une autre filière.',
+    rejectedTitle: 'Les matériaux à orienter vers une autre filière.',
     validationEyebrow: 'Vérification préalable',
-    validationTitle: 'Un doute sur votre chargement ?',
+    validationTitle: 'Un chargement à faire admettre ?',
     validationDescription:
-      "Envoyez-nous la nature du matériau, son origine chantier et, si besoin, des photos. Nous confirmons l'orientation à retenir avant votre venue.",
+      "Envoyez-nous la nature du matériau, son origine chantier et, si besoin, des photos. Nous confirmons la prise en charge possible, les documents utiles et les modalités d'admission avant votre venue.",
   },
   materialsPage: {
-    eyebrow: 'Sortie de valorisation',
+    eyebrow: 'Matériaux disponibles',
     title:
-      'Des graves recyclées pensées pour les usages chantier du quotidien.',
+      'Graves issues du recyclage, sable et graviers pour les besoins courants du chantier.',
     description:
-      "Nos matériaux recyclés répondent aux besoins de remblais, de couches d'assise, de plateformes et d'accès techniques. Les disponibilités sont confirmées selon production et stock.",
-    imageAlt: 'Grave recyclée destinée aux chantiers',
+      'Nous proposons à la vente deux familles de matériaux: des graves issues du recyclage ainsi que du sable et des graviers issus de carrières. Les volumes sont confirmés sur devis selon stock et mode d’enlèvement.',
+    imageAlt: 'Matériaux disponibles pour les chantiers',
     indicativeDensity: 'Densité indicative',
     ctaEyebrow: 'Disponibilités & devis',
     ctaTitle:
-      "Besoin d'un volume précis ou d'une granulométrie en particulier ?",
+      "Besoin d'un tonnage, d'un enlèvement ou d'une granulométrie précise ?",
     ctaDescription:
-      "Le calculateur donne un ordre de grandeur. La validation finale se fait avec notre équipe selon le besoin chantier, le stock disponible et le mode d'enlèvement.",
+      "Le calculateur donne un ordre de grandeur. La confirmation finale se fait avec notre équipe selon le volume recherché, le stock disponible et le mode d'enlèvement.",
   },
   processPage: {
-    eyebrow: 'Mode opératoire',
-    title: "Préparer l'arrivée sur site et sécuriser la traçabilité.",
+    eyebrow: 'Admission & documents',
+    title:
+      "Préparer l'admission du chargement et les documents utiles avant arrivée.",
     description:
-      "Avant toute réception, nous vérifions la compatibilité du chargement et les informations utiles au suivi. L'objectif est d'éviter les blocages à l'entrée et de garantir une gestion lisible des flux.",
+      "Cette étape permet de confirmer la compatibilité du chargement, d'anticiper la pesée et de garder une traçabilité claire sans ralentir la réception sur site.",
     imageAlt: 'Document de suivi des déchets inertes',
-    documentsEyebrow: 'Pièces utiles',
-    documentsTitle: 'Les documents à prévoir ou à demander.',
+    documentsEyebrow: 'Documents utiles',
+    documentsTitle: 'Les pièces à prévoir pour sécuriser la prise en charge.',
     documentsDescription:
-      "La liste exacte dépend du chantier et de la nature des matériaux. Cette page sert de repère avant échange avec l'équipe.",
+      'Selon la nature des matériaux et le chantier, nous vous indiquons les documents à transmettre ou à conserver avant admission.',
     reminderEyebrow: 'Important',
-    reminderTitle: 'Aucune admission sensible sans validation préalable.',
+    reminderTitle: 'Pas d’admission sensible sans validation préalable.',
     reminderDescription:
-      "En présence d'un doute sur la nature du matériau, son origine ou sa conformité, contactez-nous avant tout transport. Cela évite un refus sur site et sécurise la responsabilité du chantier.",
+      "En présence d'un doute sur la nature du matériau, son origine ou sa conformité, contactez-nous avant tout transport. Cela évite un refus sur site et sécurise la responsabilité du chantier comme la bonne orientation des flux.",
   },
   contactPage: {
-    eyebrow: 'Contact & devis',
+    eyebrow: 'Contact, devis & admission',
     title:
-      'Parlez-nous de votre chantier, de votre chargement ou de votre besoin matière.',
+      'Parlez-nous de vos déchets inertes à déposer ou de vos matériaux à acheter.',
     description:
-      "Nous revenons vers vous pour confirmer la compatibilité des matériaux, la disponibilité de graves recyclées ou les modalités d'accès au site.",
+      "Nous revenons vers vous pour confirmer la prise en charge d'un chargement, la disponibilité de graves issues du recyclage, de sable ou de graviers et les modalités d'accès au site.",
     imageAlt: "Zone de stockage et d'accès du site",
     directEyebrow: 'Contact direct',
     address: 'Adresse',
@@ -134,9 +143,9 @@ const messages = {
     hours: 'Horaires',
     faqEyebrow: 'Questions fréquentes',
     formEyebrow: 'Décrivez votre besoin',
-    formTitle: 'Une demande simple, orientée chantier.',
+    formTitle: 'Une demande simple, orientée besoin chantier.',
     formDescription:
-      "Indiquez l'origine du chantier, la nature des matériaux ou le besoin en graves. Cela nous permet de vous répondre plus vite et plus précisément.",
+      "Indiquez si vous souhaitez déposer des déchets inertes ou acheter des matériaux, avec le volume, l'origine du chantier et vos contraintes. Cela nous permet de vous répondre plus vite et plus précisément.",
   },
   contact: {
     company: 'Entreprise',

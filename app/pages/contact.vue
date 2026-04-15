@@ -1,16 +1,3 @@
-<script setup lang="ts">
-import { company, faqs } from '~/data/site'
-
-const t = useCopy()
-
-usePageSeo({
-  title: 'Contact et devis',
-  description:
-    'Contactez ATRED Valorisation pour valider un chargement, demander une disponibilité matière ou préparer un devis chantier.',
-  path: '/contact',
-})
-</script>
-
 <template>
   <div>
     <PageHero
@@ -21,14 +8,14 @@ usePageSeo({
       :image-alt="t('contactPage.imageAlt')"
     />
 
-    <section class="container-shell section-space pt-0">
+    <AppSection flush-top>
       <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="space-y-6">
-          <div class="grid-card bg-neutral-900 text-white">
-            <p class="eyebrow text-brand-100">
+          <AppCard class="bg-neutral-900! text-white">
+            <AppEyebrow tone="inverse">
               {{ t('contactPage.directEyebrow') }}
-            </p>
-            <div class="mt-5 space-y-5 text-sm/7  text-neutral-100">
+            </AppEyebrow>
+            <div class="mt-5 space-y-5 text-sm/7 text-neutral-100">
               <div>
                 <p class="font-semibold text-white">
                   {{ t('contactPage.address') }}
@@ -60,18 +47,19 @@ usePageSeo({
                 </ul>
               </div>
             </div>
-            <a
+            <AppLinkButton
               :href="company.mapsUrl"
+              variant="soft-light"
               target="_blank"
               rel="noreferrer"
-              class="cta-secondary mt-6 border-white/20 bg-white/10 text-white hover:bg-white/15"
+              class="mt-6"
             >
               {{ t('actions.openMap') }}
-            </a>
-          </div>
+            </AppLinkButton>
+          </AppCard>
 
-          <div class="grid-card">
-            <p class="eyebrow">{{ t('contactPage.faqEyebrow') }}</p>
+          <AppCard>
+            <AppEyebrow>{{ t('contactPage.faqEyebrow') }}</AppEyebrow>
             <div class="mt-5 space-y-4">
               <details
                 v-for="item in faqs"
@@ -83,12 +71,12 @@ usePageSeo({
                 >
                   {{ item.question.fr }}
                 </summary>
-                <p class="mt-3 text-sm/7  text-neutral-700">
+                <p class="mt-3 text-sm/7 text-neutral-700">
                   {{ item.answer.fr }}
                 </p>
               </details>
             </div>
-          </div>
+          </AppCard>
         </div>
 
         <div>
@@ -102,6 +90,19 @@ usePageSeo({
           </div>
         </div>
       </div>
-    </section>
+    </AppSection>
   </div>
 </template>
+
+<script setup lang="ts">
+import { company, faqs } from '~/data/site'
+
+const t = useCopy()
+
+usePageSeo({
+  title: 'Contact et devis',
+  description:
+    'Contactez ATRED Valorisation pour faire admettre un chargement de déchets inertes, vérifier une disponibilité en graves issues du recyclage, sable ou graviers, ou demander un devis chantier.',
+  path: '/contact',
+})
+</script>

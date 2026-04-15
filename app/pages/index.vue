@@ -1,174 +1,226 @@
-<script setup lang="ts">
-import { useCopy } from '~/composables/useCopy'
-import {
-  company,
-  localize,
-  processSteps,
-  recycledMaterials,
-  services,
-} from '~/data/site'
-
-const t = useCopy()
-
-usePageSeo({
-  title: 'Valorisation et stockage de déchets inertes',
-  description:
-    'ATRED Valorisation accompagne les entreprises du BTP pour la réception, la valorisation et le stockage réglementé de déchets inertes à Languidic.',
-  path: '/',
-})
-</script>
-
 <template>
   <div>
-    <section class="container-shell py-6 sm:py-8 lg:py-10">
-      <div class="grid items-stretch gap-5 lg:grid-cols-[1.08fr_0.92fr]">
-        <div
-          class="surface-panel relative overflow-hidden p-6  sm:px-8 sm:py-7"
-        >
+    <section class="relative isolate overflow-hidden">
+      <AppContainer class="py-5 sm:py-7 lg:py-9">
+        <div class="relative">
           <div
-            class="absolute inset-0 bg-[linear-gradient(135deg,rgba(12,65,58,0.05),transparent_60%)]"
-          />
-          <div class="relative max-w-2xl">
-            <p class="eyebrow">{{ t('home.heroEyebrow') }}</p>
-            <h1
-              class="mt-3 max-w-3xl font-display text-3xl/tight font-semibold  text-neutral-900 sm:text-4xl lg:text-[2.85rem]"
-            >
-              {{ t('home.heroTitle') }}
-            </h1>
-            <p
-              class="mt-4 max-w-2xl text-sm/7  text-neutral-700 sm:text-base"
-            >
-              {{ t('home.heroDescription') }}
-            </p>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <NuxtLink to="/contact" class="cta-primary">
-                {{ t('actions.askQuote') }}
-              </NuxtLink>
-              <NuxtLink to="/dechets-inertes" class="cta-secondary">
-                {{ t('actions.checkAcceptedWaste') }}
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="relative overflow-hidden rounded-3xl border border-neutral-200 shadow-[0_16px_40px_-28px_rgba(24,33,30,0.3)]"
-        >
-          <NuxtImg
-            src="/images/hero-site.jpg"
-            :alt="t('home.heroImageAlt')"
-            class="h-full min-h-72 object-contain"
-            sizes="sm:100vw lg:50vw"
-          />
-          <div
-            class="absolute inset-0 bg-linear-to-t from-neutral-900/35 via-transparent to-transparent"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="container-shell section-space pt-0">
-      <SectionHeading
-        :eyebrow="t('home.servicesEyebrow')"
-        :title="t('home.servicesTitle')"
-        :description="t('home.servicesDescription')"
-      />
-
-      <div class="mt-10 grid gap-5 lg:grid-cols-3">
-        <article
-          v-for="service in services"
-          :key="service.icon"
-          class="grid-card"
-        >
-          <Icon :name="service.icon" class="size-9  text-brand-600" />
-          <h3
-            class="mt-5 font-display text-2xl/tight font-semibold  text-neutral-900"
+            class="relative overflow-hidden rounded-4xl bg-brand-600 shadow-lg"
           >
-            {{ localize(service.title) }}
-          </h3>
-          <p class="mt-4 text-sm/7  text-neutral-700">
-            {{ localize(service.description) }}
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="container-shell section-space pt-0">
-      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <div class="surface-panel p-6 sm:p-8">
-          <SectionHeading
-            :eyebrow="t('home.processEyebrow')"
-            :title="t('home.processTitle')"
-            :description="t('home.processDescription')"
-          />
-          <div class="mt-8 space-y-0">
             <div
-              v-for="(step, index) in processSteps"
-              :key="index"
-              class="relative grid gap-4 pb-7 pl-14 last:pb-0"
-            >
-              <div
-                v-if="index !== processSteps.length - 1"
-                class="absolute left-[1.1rem] top-10 bottom-0 w-px bg-neutral-300"
-              />
-              <div
-                class="absolute left-0 top-0 flex size-9  items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white"
-              >
-                {{ index + 1 }}
+              class="pointer-events-none absolute inset-0"
+              aria-hidden="true"
+            />
+            <div
+              class="pointer-events-none absolute -left-20 bottom-0 size-56 rounded-full bg-brand-300/20 blur-3xl sm:size-72"
+              aria-hidden="true"
+            />
+
+            <div class="relative grid gap-0 lg:grid-cols-2">
+              <div class="flex flex-col justify-center px-6 py-10 sm:px-10 sm:py-14 lg:px-12 lg:py-16">
+                <div class="max-w-xl">
+                  <AppEyebrow tone="inverse">
+                    {{ t('home.heroEyebrow') }}
+                  </AppEyebrow>
+                  <h1
+                    class="mt-5 max-w-xl font-display text-4xl/tight font-semibold text-white sm:text-5xl"
+                  >
+                    {{ t('home.heroTitle') }}
+                  </h1>
+                  <p class="mt-5 max-w-md text-sm/7 text-brand-100/90 sm:text-base/7">
+                    {{ t('home.heroIntro') }}
+                  </p>
+
+                  <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <AppLinkButton
+                      to="/materiaux-recycles"
+                      variant="light"
+                      class="w-full sm:w-auto"
+                    >
+                      {{ t('actions.buyMaterials') }}
+                      <Icon name="ph:arrow-right" class="ml-2 size-4" />
+                    </AppLinkButton>
+                    <AppLinkButton
+                      to="/dechets-inertes"
+                      variant="ghost-light"
+                      class="w-full sm:w-auto"
+                    >
+                      {{ t('actions.checkAcceptedWaste') }}
+                      <Icon name="ph:shield-check" class="ml-2 size-4" />
+                    </AppLinkButton>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 class="text-lg mt-1 font-semibold text-neutral-900">
-                  {{ localize(step.title) }}
-                </h3>
-                <p class="mt-2 text-sm/7  text-neutral-700">
-                  {{ localize(step.description) }}
-                </p>
+
+              <div class="relative min-h-72 lg:min-h-104">
+                <NuxtImg
+                  src="/images/hero-site.jpg"
+                  alt="Vue du site ATRED à Languidic"
+                  class="absolute inset-0 size-full object-cover"
+                  sizes="100vw lg:55vw"
+                />
+                <div
+                  class="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,65,58,0.72)_0%,rgba(12,65,58,0.14)_42%,rgba(12,65,58,0.08)_100%)] lg:bg-[linear-gradient(90deg,rgba(12,65,58,1)_2%,rgba(12,65,58,0.2)_38%,rgba(12,65,58,0)_78%)]"
+                />
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="space-y-6">
-          <div class="grid-card border-brand-100 bg-brand-50">
-            <p class="eyebrow">{{ t('home.materialsEyebrow') }}</p>
-            <h3
-              class="mt-3 font-display text-3xl/tight font-semibold  text-neutral-900"
+          <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:gap-6">
+            <article
+              class="group relative overflow-hidden rounded-4xl border border-neutral-200 bg-white p-7 shadow-[0_18px_40px_-34px_rgba(24,33,30,0.35)] transition-shadow hover:shadow-[0_24px_50px_-32px_rgba(24,33,30,0.42)] sm:p-8 lg:p-9"
             >
-              {{ t('home.materialsTitle') }}
-            </h3>
-            <div class="mt-6 space-y-4">
-              <div
-                v-for="material in recycledMaterials"
-                :key="material.slug"
-                class="flex items-center gap-4 rounded-xl border border-neutral-200 bg-white px-4 py-3"
-              >
-                <NuxtImg
-                  :src="material.image"
-                  :alt="`${material.name} ${material.size}`"
-                  class="size-16  shrink-0 rounded-lg object-cover"
-                  sizes="64px"
-                />
-                <div>
-                  <p class="font-semibold text-neutral-900">
-                    {{ material.name }} {{ material.size }}
-                  </p>
-                  <p class="mt-1 text-sm/6  text-neutral-700">
-                    {{ localize(material.usage) }}
+              <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                <div class="h-28 w-full shrink-0 overflow-hidden rounded-3xl sm:size-24">
+                  <NuxtImg
+                    src="/images/material-grave-0-31-5.jpg"
+                    alt="Granulats recyclés disponibles à la vente"
+                    class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 639px) 100vw, 96px"
+                  />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:arrows-clockwise" class="size-4 text-brand-400" />
+                    <span
+                      class="text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500"
+                    >
+                      {{ t('home.heroMaterialsLabel') }}
+                    </span>
+                  </div>
+                  <h2
+                    class="mt-3 max-w-md font-display text-xl/tight font-semibold text-neutral-900 sm:text-[1.35rem]/tight"
+                  >
+                    {{ t('home.heroMaterialsTitle') }}
+                  </h2>
+                  <p class="mt-3 max-w-lg text-sm/7 text-neutral-600">
+                    {{ t('home.heroMaterialsDescription') }}
                   </p>
                 </div>
               </div>
-            </div>
-            <NuxtLink to="/materiaux-recycles" class="cta-secondary mt-6">
-              {{ t('actions.viewMaterials') }}
-            </NuxtLink>
+
+              <div class="mt-6 flex flex-wrap gap-2.5">
+                <span
+                  v-for="material in heroMaterialExamples"
+                  :key="material.slug"
+                  class="rounded-full border border-neutral-200 bg-brand-50 px-3 py-1 text-xs font-medium text-neutral-900"
+                >
+                  {{ materialLabel(material) }}
+                </span>
+              </div>
+
+              <p class="mt-6 max-w-xl text-sm/7 text-neutral-700">
+                {{ t('home.heroMaterialsDetail') }}
+              </p>
+            </article>
+
+            <article
+              class="group relative overflow-hidden rounded-4xl border border-neutral-200 bg-white p-7 shadow-[0_18px_40px_-34px_rgba(24,33,30,0.35)] transition-shadow hover:shadow-[0_24px_50px_-32px_rgba(24,33,30,0.42)] sm:p-8 lg:p-9"
+            >
+              <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+                <div class="h-28 w-full shrink-0 overflow-hidden rounded-3xl sm:size-24">
+                  <NuxtImg
+                    src="/images/dechets-acceptes-1.jpg"
+                    alt="Zone de dépôt de déchets inertes"
+                    class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 639px) 100vw, 96px"
+                  />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:truck" class="size-4 text-brand-400" />
+                    <span
+                      class="text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500"
+                    >
+                      {{ t('home.heroWasteLabel') }}
+                    </span>
+                  </div>
+                  <h2
+                    class="mt-3 max-w-md font-display text-xl/tight font-semibold text-neutral-900 sm:text-[1.35rem]/tight"
+                  >
+                    {{ t('home.heroWasteTitle') }}
+                  </h2>
+                  <p class="mt-3 max-w-lg text-sm/7 text-neutral-600">
+                    {{ t('home.heroWasteDescription') }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-wrap gap-2.5">
+                <span
+                  v-for="example in heroWasteExamples"
+                  :key="localize(example)"
+                  class="rounded-full bg-brand-600 px-3 py-1 text-xs font-medium text-white"
+                >
+                  {{ localize(example) }}
+                </span>
+              </div>
+
+              <p class="mt-6 max-w-xl text-sm/7 text-neutral-700">
+                {{ t('home.heroWasteDetail') }}
+              </p>
+              <p class="mt-4 max-w-xl text-sm/7 font-medium text-brand-700">
+                {{ t('home.heroWasteAdmissionNote') }}
+              </p>
+            </article>
           </div>
         </div>
-      </div>
+      </AppContainer>
     </section>
 
     <CtaBanner
       :title="t('home.ctaTitle')"
-      :description="`${company.location} • ${company.phoneDisplay} • ${company.serviceArea}`"
+      :description="t('home.ctaDescription')"
+      :primary-label="t('actions.contactUs')"
+      primary-to="/contact"
+      :secondary-label="t('actions.buyMaterials')"
+      secondary-to="/materiaux-recycles"
     />
   </div>
 </template>
+
+<script setup lang="ts">
+import type { LocalizedText } from '~/data/site'
+
+import { useCopy } from '~/composables/useCopy'
+import {
+  localize,
+  materialLabel,
+  materialsCatalog,
+  wasteCategories,
+} from '~/data/site'
+
+const t = useCopy()
+
+const heroMaterialExamples = computed(() =>
+  materialsCatalog.filter((material) =>
+    [
+      'grave-0-20',
+      'grave-0-31-5',
+      'grave-0-80',
+      'grave-0-120',
+      'sable',
+      'gravier-10-14',
+    ].includes(material.slug),
+  ),
+)
+
+const isLocalizedText = (
+  value: LocalizedText | undefined,
+): value is LocalizedText => Boolean(value)
+
+const heroWasteExamples = computed(() =>
+  [
+    wasteCategories[0]?.examples[0],
+    wasteCategories[0]?.examples[2],
+    wasteCategories[1]?.examples[0],
+    wasteCategories[1]?.examples[1],
+  ].filter(isLocalizedText),
+)
+
+usePageSeo({
+  title: 'Déchets inertes et matériaux chantier',
+  description:
+    'ATRED Valorisation prend en charge les déchets inertes du BTP à Languidic et propose des graves issues du recyclage, du sable et des graviers pour les chantiers.',
+  path: '/',
+})
+</script>

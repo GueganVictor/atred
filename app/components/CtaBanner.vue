@@ -1,14 +1,5 @@
-<script setup lang="ts">
-const t = useCopy()
-
-defineProps<{
-  title: string
-  description: string
-}>()
-</script>
-
 <template>
-  <section class="container-shell section-space">
+  <AppSection>
     <div
       class="relative overflow-hidden rounded-3xl bg-brand-700 px-6 py-8 text-white sm:px-8"
     >
@@ -19,32 +10,39 @@ defineProps<{
         class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
       >
         <div class="max-w-2xl">
-          <p class="eyebrow text-brand-100">{{ t('common.needHelp') }}</p>
+          <AppEyebrow tone="inverse">{{ t('common.needHelp') }}</AppEyebrow>
           <h2
-            class="mt-3 font-display text-3xl/tight font-semibold  sm:text-4xl"
+            class="mt-3 font-display text-3xl/tight font-semibold sm:text-4xl"
           >
             {{ title }}
           </h2>
-          <p class="mt-4 text-base/7  text-neutral-100">
+          <p class="mt-4 text-base/7 text-neutral-100">
             {{ description }}
           </p>
         </div>
 
         <div class="flex flex-wrap gap-3">
-          <NuxtLink
-            to="/contact"
-            class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition hover:bg-neutral-100"
-          >
-            {{ t('actions.contactUs') }}
-          </NuxtLink>
-          <NuxtLink
-            to="/procedure-documents"
-            class="inline-flex items-center justify-center rounded-full border border-white/25 bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-          >
-            {{ t('actions.viewProcess') }}
-          </NuxtLink>
+          <AppLinkButton :to="primaryTo" variant="light">
+            {{ primaryLabel }}
+          </AppLinkButton>
+          <AppLinkButton :to="secondaryTo" variant="ghost-light">
+            {{ secondaryLabel }}
+          </AppLinkButton>
         </div>
       </div>
     </div>
-  </section>
+  </AppSection>
 </template>
+
+<script setup lang="ts">
+const t = useCopy()
+
+defineProps<{
+  title: string
+  description: string
+  primaryLabel: string
+  primaryTo: string
+  secondaryLabel: string
+  secondaryTo: string
+}>()
+</script>

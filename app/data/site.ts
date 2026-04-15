@@ -8,9 +8,12 @@ type Service = {
   icon: string
 }
 
-type Stat = {
-  value: string
-  label: LocalizedText
+type MaterialCategoryKey = 'recycled' | 'quarry'
+
+type MaterialCategory = {
+  slug: MaterialCategoryKey
+  title: LocalizedText
+  description: LocalizedText
 }
 
 type WasteCategory = {
@@ -22,6 +25,7 @@ type WasteCategory = {
 
 type Material = {
   slug: string
+  category: MaterialCategoryKey
   name: string
   size: string
   image: string
@@ -62,48 +66,38 @@ export const company = {
   ],
 }
 
-export const heroStats: Stat[] = [
-  {
-    value: '+500 tonnes de',
-    label: {
-      fr: 'déchets inertes traités sur le site de Keryvon',
-      en: 'inert waste treated on the Keryvon site',
-    },
-  },
-]
-
 export const services: Service[] = [
   {
     icon: 'ph:truck-trailer',
     title: {
-      fr: 'Réception de déchets inertes',
-      en: 'Inert waste reception',
+      fr: 'Site local et contact direct',
+      en: 'Local site and direct contact',
     },
     description: {
-      fr: 'Accueil des déblais, gravats, terres et matériaux conformes aux autorisations du site.',
-      en: 'Reception of spoil, rubble, soil and materials compliant with site authorizations.',
+      fr: 'Le site de Keryvon à Languidic répond aux chantiers du Morbihan avec un échange direct pour confirmer besoins, accès et disponibilités.',
+      en: 'The Keryvon site in Languidic serves projects across Morbihan with direct contact to confirm needs, access and availability.',
     },
   },
   {
     icon: 'ph:arrows-clockwise',
     title: {
-      fr: 'Valorisation matière',
-      en: 'Material recovery',
+      fr: 'Matériaux disponibles',
+      en: 'Materials available',
     },
     description: {
-      fr: 'Tri, concassage et remise en circulation de matériaux recyclés pour de nouveaux usages chantier.',
-      en: 'Sorting, crushing and reintroduction of recycled materials for new construction uses.',
+      fr: 'Graves issues du recyclage, sable et graviers de carrière sont proposés selon production, stock et besoin chantier.',
+      en: 'Recycled aggregates, sand and quarry gravel are offered according to production, stock and site needs.',
     },
   },
   {
     icon: 'ph:clipboard-text',
     title: {
-      fr: 'Traçabilité et conformité',
-      en: 'Traceability and compliance',
+      fr: 'Admission et suivi clairs',
+      en: 'Clear admission and tracking',
     },
     description: {
-      fr: 'Accompagnement sur les démarches préalables, les pièces à fournir et le suivi documentaire.',
-      en: 'Support for pre-admission formalities, required documents and tracking paperwork.',
+      fr: "Validation préalable du chargement, pesée et documents utiles permettent de sécuriser la prise en charge avant l'arrivée sur site.",
+      en: 'Pre-validation, weighing and useful documents secure handling before arrival on site.',
     },
   },
 ]
@@ -178,9 +172,35 @@ export const rejectedMaterials: LocalizedText[] = [
   },
 ]
 
-export const recycledMaterials: Material[] = [
+export const materialCategories: MaterialCategory[] = [
+  {
+    slug: 'recycled',
+    title: {
+      fr: 'Graves issues du recyclage',
+      en: 'Recycled aggregates',
+    },
+    description: {
+      fr: "Pour remblais, plateformes, couches d'assise et accès chantier.",
+      en: 'For fill, platforms, sub-bases and site access.',
+    },
+  },
+  {
+    slug: 'quarry',
+    title: {
+      fr: 'Sable et graviers issus de carrières',
+      en: 'Sand and quarry gravel',
+    },
+    description: {
+      fr: 'Pour réglage, finition, drainage et besoins courants du chantier.',
+      en: 'For levelling, finishing, drainage and standard site needs.',
+    },
+  },
+]
+
+export const materialsCatalog: Material[] = [
   {
     slug: 'grave-0-20',
+    category: 'recycled',
     name: 'Grave recyclée',
     size: '0/20',
     image: '/images/material-grave-0-20.jpg',
@@ -192,6 +212,7 @@ export const recycledMaterials: Material[] = [
   },
   {
     slug: 'grave-0-31-5',
+    category: 'recycled',
     name: 'Grave recyclée',
     size: '0/31,5',
     image: '/images/material-grave-0-31-5.jpg',
@@ -203,6 +224,7 @@ export const recycledMaterials: Material[] = [
   },
   {
     slug: 'grave-0-80',
+    category: 'recycled',
     name: 'Grave recyclée',
     size: '0/80',
     image: '/images/material-grave-0-80.jpg',
@@ -214,6 +236,7 @@ export const recycledMaterials: Material[] = [
   },
   {
     slug: 'grave-0-120',
+    category: 'recycled',
     name: 'Grave recyclée',
     size: '0/120',
     image: '/images/material-grave-0-120.jpg',
@@ -222,6 +245,30 @@ export const recycledMaterials: Material[] = [
       en: 'Heavy fill, industrial platforms and robust site accesses.',
     },
     density: 2,
+  },
+  {
+    slug: 'sable',
+    category: 'quarry',
+    name: 'Sable',
+    size: '',
+    image: '/images/materials-hero.png',
+    usage: {
+      fr: 'Lit de pose, remblais fins, réglage et finitions selon le besoin chantier.',
+      en: 'Bedding, fine fill, levelling and finishing according to site needs.',
+    },
+    density: 1.6,
+  },
+  {
+    slug: 'gravier-10-14',
+    category: 'quarry',
+    name: 'Gravier',
+    size: '10/14',
+    image: '/images/materials-hero.png',
+    usage: {
+      fr: 'Drainage, aménagements extérieurs et besoins courants en gravier calibré.',
+      en: 'Drainage, outdoor works and standard needs for calibrated gravel.',
+    },
+    density: 1.5,
   },
 ]
 
@@ -279,7 +326,7 @@ export const documents: DocumentItem[] = [
       en: 'Document used to justify the origin, nature and destination of managed waste.',
     },
     status: {
-      fr: 'Disponible sur demande au moment du devis',
+      fr: "Disponible selon le besoin au moment du devis ou de l'admission",
       en: 'Available on request during quotation',
     },
   },
@@ -293,13 +340,23 @@ export const documents: DocumentItem[] = [
       en: 'Allows checking in advance whether materials are compatible with site authorizations.',
     },
     status: {
-      fr: 'À valider avec l’équipe ATRED',
+      fr: "À valider avec l'équipe ATRED avant transport",
       en: 'To be validated with the ATRED team',
     },
   },
 ]
 
 export const commitments: Commitment[] = [
+  {
+    title: {
+      fr: 'Double réponse chantier',
+      en: 'Dual site solution',
+    },
+    description: {
+      fr: 'Un même site pour déposer des déchets inertes compatibles et se fournir en graves issues du recyclage, sable ou graviers selon le besoin.',
+      en: 'One site to bring compatible inert waste and source recycled aggregates, sand or gravel according to the need.',
+    },
+  },
   {
     title: {
       fr: 'Ancrage local',
@@ -312,22 +369,12 @@ export const commitments: Commitment[] = [
   },
   {
     title: {
-      fr: 'Valorisation prioritaire',
-      en: 'Recovery first',
+      fr: 'Admission cadrée',
+      en: 'Structured admission',
     },
     description: {
-      fr: 'Les matériaux compatibles sont orientés vers des usages secondaires plutôt que vers un simple enfouissement.',
-      en: 'Compatible materials are redirected to secondary uses rather than only being buried.',
-    },
-  },
-  {
-    title: {
-      fr: 'Cadre réglementaire clair',
-      en: 'Clear regulatory framework',
-    },
-    description: {
-      fr: 'Chaque admission s’inscrit dans un process de contrôle pour protéger le site, l’environnement et vos responsabilités.',
-      en: 'Every admission follows a control process to protect the site, the environment and your responsibilities.',
+      fr: 'Validation préalable, pesée et suivi documentaire viennent sécuriser la prise en charge sans alourdir les échanges.',
+      en: 'Pre-validation, weighing and document tracking secure handling without overcomplicating exchanges.',
     },
   },
 ]
@@ -339,7 +386,7 @@ export const faqs = [
       en: 'Do you provide online pricing directly?',
     },
     answer: {
-      fr: 'Non. Les tarifs dépendent du matériau, du volume, de la disponibilité et du contexte chantier. Le site permet surtout de qualifier le besoin avant devis.',
+      fr: 'Non. Les tarifs de prise en charge ou de vente dépendent du matériau, du volume, du stock disponible et du contexte chantier. Le site permet surtout de qualifier le besoin avant devis.',
       en: 'No. Prices depend on material, volume, availability and the project context. The website primarily helps qualify the need before quotation.',
     },
   },
@@ -354,5 +401,8 @@ export const faqs = [
     },
   },
 ]
+
+export const materialLabel = (material: Material) =>
+  [material.name, material.size].filter(Boolean).join(' ')
 
 export const localize = (text: LocalizedText) => text.fr

@@ -1,80 +1,5 @@
-<script setup lang="ts">
-const config = useRuntimeConfig()
-const t = useCopy()
-
-const form = reactive({
-  company: '',
-  name: '',
-  email: '',
-  phone: '',
-  project: '',
-  message: '',
-})
-
-const loading = ref(false)
-const success = ref(false)
-const error = ref('')
-
-const buildMailto = () => {
-  const subject = encodeURIComponent(
-    `Demande de devis - ${form.company || form.name}`,
-  )
-  const body = encodeURIComponent(
-    [
-      `Entreprise: ${form.company}`,
-      `Nom: ${form.name}`,
-      `Email: ${form.email}`,
-      `Téléphone: ${form.phone}`,
-      `Projet: ${form.project}`,
-      '',
-      form.message,
-    ].join('\n'),
-  )
-
-  window.location.href = `mailto:${config.public.contactEmail}?subject=${subject}&body=${body}`
-}
-
-const resetForm = () => {
-  Object.assign(form, {
-    company: '',
-    name: '',
-    email: '',
-    phone: '',
-    project: '',
-    message: '',
-  })
-}
-
-const onSubmit = async () => {
-  loading.value = true
-  success.value = false
-  error.value = ''
-
-  try {
-    if (config.public.contactFormEndpoint) {
-      await $fetch(config.public.contactFormEndpoint, {
-        method: 'POST',
-        body: {
-          ...form,
-          source: 'atred-website',
-        },
-      })
-    } else {
-      buildMailto()
-    }
-
-    success.value = true
-    resetForm()
-  } catch {
-    error.value = t('contact.formError')
-  } finally {
-    loading.value = false
-  }
-}
-</script>
-
 <template>
-  <div class="surface-panel p-6 sm:p-8">
+  <AppPanel class="p-6 sm:p-8">
     <div class="grid gap-5 sm:grid-cols-2">
       <label class="space-y-2 text-sm">
         <span class="font-semibold text-neutral-800">{{
@@ -149,17 +74,12 @@ const onSubmit = async () => {
     <div
       class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p class="text-xs/6  text-neutral-600">
+      <p class="text-xs/6 text-neutral-600">
         {{ t('contact.formHint') }}
       </p>
-      <button
-        type="button"
-        class="cta-primary"
-        :disabled="loading"
-        @click="onSubmit"
-      >
+      <AppButton type="button" :disabled="loading" @click="onSubmit">
         {{ loading ? t('contact.sending') : t('actions.sendRequest') }}
-      </button>
+      </AppButton>
     </div>
 
     <p
@@ -174,5 +94,80 @@ const onSubmit = async () => {
     >
       {{ error }}
     </p>
-  </div>
+  </AppPanel>
 </template>
+
+<script setup lang="ts">
+const config = useRuntimeConfig()
+const t = useCopy()
+
+const form = reactive({
+  company: '',
+  name: '',
+  email: '',
+  phone: '',
+  project: '',
+  message: '',
+})
+
+const loading = ref(false)
+const success = ref(false)
+const error = ref('')
+
+const buildMailto = () => {
+  const subject = encodeURIComponent(
+    `Demande de devis - ${form.company || form.name}`,
+  )
+  const body = encodeURIComponent(
+    [
+      `Entreprise: ${form.company}`,
+      `Nom: ${form.name}`,
+      `Email: ${form.email}`,
+      `Téléphone: ${form.phone}`,
+      `Projet: ${form.project}`,
+      '',
+      form.message,
+    ].join('\n'),
+  )
+
+  window.location.href = `mailto:${config.public.contactEmail}?subject=${subject}&body=${body}`
+}
+
+const resetForm = () => {
+  Object.assign(form, {
+    company: '',
+    name: '',
+    email: '',
+    phone: '',
+    project: '',
+    message: '',
+  })
+}
+
+const onSubmit = async () => {
+  loading.value = true
+  success.value = false
+  error.value = ''
+
+  try {
+    if (config.public.contactFormEndpoint) {
+      await $fetch(config.public.contactFormEndpoint, {
+        method: 'POST',
+        body: {
+          ...form,
+          source: 'atred-website',
+        },
+      })
+    } else {
+      buildMailto()
+    }
+
+    success.value = true
+    resetForm()
+  } catch {
+    error.value = t('contact.formError')
+  } finally {
+    loading.value = false
+  }
+}
+</script>

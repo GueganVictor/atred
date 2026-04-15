@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import { localize, rejectedMaterials, wasteCategories } from '~/data/site'
-
-const t = useCopy()
-
-usePageSeo({
-  title: 'Déchets inertes acceptés',
-  description:
-    'Consultez les familles de matériaux inertes acceptées sur le site ATRED et les cas qui nécessitent une validation préalable.',
-  path: '/dechets-inertes',
-  image: '/images/dechets-acceptes-1.jpg',
-})
-</script>
-
 <template>
   <div>
     <PageHero
@@ -22,12 +8,13 @@ usePageSeo({
       :image-alt="t('wastePage.imageAlt')"
     />
 
-    <section class="container-shell section-space pt-0">
+    <AppSection flush-top>
       <div class="grid gap-6 lg:grid-cols-2">
-        <article
+        <AppCard
           v-for="category in wasteCategories"
           :key="localize(category.title)"
-          class="grid-card overflow-hidden"
+          as="article"
+          class="overflow-hidden"
         >
           <div class="relative mb-6 overflow-hidden rounded-xl">
             <NuxtImg
@@ -41,11 +28,11 @@ usePageSeo({
             />
           </div>
           <h2
-            class="font-display text-2xl/tight font-semibold  text-neutral-900"
+            class="font-display text-2xl/tight font-semibold text-neutral-900"
           >
             {{ localize(category.title) }}
           </h2>
-          <p class="mt-4 text-sm/7  text-neutral-700">
+          <p class="mt-4 text-sm/7 text-neutral-700">
             {{ localize(category.description) }}
           </p>
           <ul class="mt-5 space-y-3">
@@ -56,28 +43,28 @@ usePageSeo({
             >
               <Icon
                 name="ph:check-circle"
-                class="mt-0.5 size-5  shrink-0 text-brand-600"
+                class="mt-0.5 size-5 shrink-0 text-brand-600"
               />
               <span>{{ localize(example) }}</span>
             </li>
           </ul>
           <p
             v-if="category.caution"
-            class="mt-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm/7  text-brand-700"
+            class="mt-5 rounded-xl border border-brand-200 bg-brand-50 px-4 py-3 text-sm/7 text-brand-700"
           >
             {{ localize(category.caution) }}
           </p>
-        </article>
+        </AppCard>
       </div>
-    </section>
+    </AppSection>
 
-    <section class="container-shell section-space pt-0">
+    <AppSection flush-top>
       <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="grid-card bg-neutral-900 text-white">
-          <p class="eyebrow text-brand-100">
+        <AppCard class="bg-neutral-900! text-white">
+          <AppEyebrow tone="inverse">
             {{ t('wastePage.rejectedEyebrow') }}
-          </p>
-          <h2 class="mt-3 font-display text-3xl/tight font-semibold ">
+          </AppEyebrow>
+          <h2 class="mt-3 font-display text-3xl/tight font-semibold">
             {{ t('wastePage.rejectedTitle') }}
           </h2>
           <ul class="mt-6 space-y-3">
@@ -89,24 +76,38 @@ usePageSeo({
               {{ localize(item) }}
             </li>
           </ul>
-        </div>
+        </AppCard>
 
-        <div class="surface-panel p-6 sm:p-8">
+        <AppPanel class="p-6 sm:p-8">
           <SectionHeading
             :eyebrow="t('wastePage.validationEyebrow')"
             :title="t('wastePage.validationTitle')"
             :description="t('wastePage.validationDescription')"
           />
           <div class="mt-8 flex flex-wrap gap-3">
-            <NuxtLink to="/contact" class="cta-primary">
+            <AppLinkButton to="/contact">
               {{ t('actions.contactUs') }}
-            </NuxtLink>
-            <NuxtLink to="/procedure-documents" class="cta-secondary">
+            </AppLinkButton>
+            <AppLinkButton to="/procedure-documents" variant="secondary">
               {{ t('actions.viewProcess') }}
-            </NuxtLink>
+            </AppLinkButton>
           </div>
-        </div>
+        </AppPanel>
       </div>
-    </section>
+    </AppSection>
   </div>
 </template>
+
+<script setup lang="ts">
+import { localize, rejectedMaterials, wasteCategories } from '~/data/site'
+
+const t = useCopy()
+
+usePageSeo({
+  title: 'Déchets inertes acceptés',
+  description:
+    'Consultez les familles de déchets inertes prises en charge sur le site ATRED et les cas qui nécessitent une validation préalable.',
+  path: '/dechets-inertes',
+  image: '/images/dechets-acceptes-1.jpg',
+})
+</script>

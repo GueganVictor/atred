@@ -1,24 +1,8 @@
-<script setup lang="ts">
-const t = useCopy()
-
-const isOpen = ref(false)
-
-const navigation = computed(() => [
-  { label: t('nav.home'), to: '/' },
-  { label: t('nav.company'), to: '/entreprise' },
-  { label: t('nav.waste'), to: '/dechets-inertes' },
-  { label: t('nav.materials'), to: '/materiaux-recycles' },
-  { label: t('nav.process'), to: '/procedure-documents' },
-])
-</script>
-
 <template>
   <header
     class="sticky top-0 z-50 border-b border-neutral-200 bg-neutral-50/95 backdrop-blur-md"
   >
-    <div
-      class="container-shell flex min-h-18 items-center justify-between gap-4"
-    >
+    <AppContainer class="flex min-h-18 items-center justify-between gap-4">
       <NuxtLink to="/" class="flex items-center gap-3">
         <img
           src="/images/logo-atred.png"
@@ -39,23 +23,23 @@ const navigation = computed(() => [
       </nav>
 
       <div class="hidden lg:block">
-        <NuxtLink to="/contact" class="cta-primary">
+        <AppLinkButton to="/contact">
           {{ t('actions.askQuote') }}
-        </NuxtLink>
+        </AppLinkButton>
       </div>
 
       <button
         type="button"
-        class="inline-flex size-11  items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 lg:hidden"
+        class="inline-flex size-11 items-center justify-center rounded-full border border-neutral-300 bg-white text-neutral-900 lg:hidden"
         :aria-label="t('actions.openMenu')"
         @click="isOpen = !isOpen"
       >
-        <Icon :name="isOpen ? 'ph:x' : 'ph:list'" class="size-5 " />
+        <Icon :name="isOpen ? 'ph:x' : 'ph:list'" class="size-5" />
       </button>
-    </div>
+    </AppContainer>
 
     <div v-if="isOpen" class="border-t border-neutral-200 bg-white lg:hidden">
-      <nav class="container-shell flex flex-col gap-3 py-4">
+      <AppContainer as="nav" class="flex flex-col gap-3 py-4">
         <NuxtLink
           v-for="item in navigation"
           :key="item.to"
@@ -65,14 +49,24 @@ const navigation = computed(() => [
         >
           {{ item.label }}
         </NuxtLink>
-        <NuxtLink
-          to="/contact"
-          class="cta-primary mt-2"
-          @click="isOpen = false"
-        >
+        <AppLinkButton to="/contact" class="mt-2" @click="isOpen = false">
           {{ t('actions.askQuote') }}
-        </NuxtLink>
-      </nav>
+        </AppLinkButton>
+      </AppContainer>
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const t = useCopy()
+
+const isOpen = ref(false)
+
+const navigation = computed(() => [
+  { label: t('nav.home'), to: '/' },
+  { label: t('nav.company'), to: '/entreprise' },
+  { label: t('nav.waste'), to: '/dechets-inertes' },
+  { label: t('nav.materials'), to: '/materiaux-recycles' },
+  { label: t('nav.process'), to: '/procedure-documents' },
+])
+</script>

@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import { documents, localize, processSteps } from '~/data/site'
-
-const t = useCopy()
-
-usePageSeo({
-  title: 'Procédure et documents',
-  description:
-    'Comprenez les étapes d’admission, de pesée, de dépôt et de traçabilité avant d’arriver sur le site ATRED.',
-  path: '/procedure-documents',
-  image: '/images/bsdi-document.png',
-})
-</script>
-
 <template>
   <div>
     <PageHero
@@ -22,12 +8,12 @@ usePageSeo({
       :image-alt="t('processPage.imageAlt')"
     />
 
-    <section class="container-shell section-space pt-0">
+    <AppSection flush-top>
       <div class="grid gap-5 lg:grid-cols-4">
-        <article
+        <AppCard
           v-for="(step, index) in processSteps"
           :key="index"
-          class="grid-card"
+          as="article"
         >
           <p
             class="font-display text-4xl font-semibold leading-none text-brand-500"
@@ -37,16 +23,16 @@ usePageSeo({
           <h2 class="mt-5 text-lg font-semibold text-neutral-900">
             {{ localize(step.title) }}
           </h2>
-          <p class="mt-3 text-sm/7  text-neutral-700">
+          <p class="mt-3 text-sm/7 text-neutral-700">
             {{ localize(step.description) }}
           </p>
-        </article>
+        </AppCard>
       </div>
-    </section>
+    </AppSection>
 
-    <section class="container-shell section-space pt-0">
+    <AppSection flush-top>
       <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="surface-panel p-6 sm:p-8">
+        <AppPanel class="p-6 sm:p-8">
           <SectionHeading
             :eyebrow="t('processPage.documentsEyebrow')"
             :title="t('processPage.documentsTitle')"
@@ -61,7 +47,7 @@ usePageSeo({
               <h3 class="text-lg font-semibold text-neutral-900">
                 {{ localize(document.title) }}
               </h3>
-              <p class="mt-2 text-sm/7  text-neutral-700">
+              <p class="mt-2 text-sm/7 text-neutral-700">
                 {{ localize(document.description) }}
               </p>
               <p
@@ -71,20 +57,34 @@ usePageSeo({
               </p>
             </div>
           </div>
-        </div>
+        </AppPanel>
 
-        <div class="grid-card bg-neutral-900 text-white">
-          <p class="eyebrow text-brand-100">
+        <AppCard class="bg-neutral-900! text-white">
+          <AppEyebrow tone="inverse">
             {{ t('processPage.reminderEyebrow') }}
-          </p>
-          <h2 class="mt-3 font-display text-3xl/tight font-semibold ">
+          </AppEyebrow>
+          <h2 class="mt-3 font-display text-3xl/tight font-semibold">
             {{ t('processPage.reminderTitle') }}
           </h2>
-          <p class="mt-4 text-sm/7  text-neutral-100">
+          <p class="mt-4 text-sm/7 text-neutral-100">
             {{ t('processPage.reminderDescription') }}
           </p>
-        </div>
+        </AppCard>
       </div>
-    </section>
+    </AppSection>
   </div>
 </template>
+
+<script setup lang="ts">
+import { documents, localize, processSteps } from '~/data/site'
+
+const t = useCopy()
+
+usePageSeo({
+  title: 'Admission et documents',
+  description:
+    "Comprenez les modalités d'admission, de pesée et les documents utiles avant d'arriver sur le site ATRED.",
+  path: '/procedure-documents',
+  image: '/images/bsdi-document.png',
+})
+</script>
