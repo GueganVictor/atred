@@ -1,84 +1,89 @@
 <template>
   <div>
-    <PageHero
-      :eyebrow="t('companyPage.eyebrow')"
-      :title="t('companyPage.title')"
-      :description="t('companyPage.description')"
-      image="/images/pelleteuse.jpg"
-      :image-alt="t('companyPage.imageAlt')"
-    />
+    <AppSection>
+      <SectionHeading
+        eyebrow="ATRED"
+        title="Nos activités"
+        description="Trois axes simples: vente de granulats, valorisation des matériaux et accueil de matériaux inertes."
+      />
 
-    <AppSection flush-top>
-      <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
-        <AppPanel class="p-6 sm:p-8">
-          <SectionHeading
-            :eyebrow="t('companyPage.storyEyebrow')"
-            :title="t('companyPage.storyTitle')"
-            :description="t('companyPage.storyDescription')"
-          />
-          <div class="mt-8 space-y-5 text-sm/8 text-neutral-700 sm:text-base">
-            <p>{{ t('companyPage.storyParagraph1') }}</p>
-            <p>{{ t('companyPage.storyParagraph2') }}</p>
-            <p>{{ t('companyPage.storyParagraph3') }}</p>
-          </div>
-        </AppPanel>
-
-        <div class="space-y-6">
-          <AppCard class="bg-neutral-900! text-white">
-            <AppEyebrow tone="inverse">
-              {{ t('companyPage.siteEyebrow') }}
-            </AppEyebrow>
-            <h3 class="mt-3 font-display text-3xl/tight font-semibold">
-              {{ t('companyPage.siteTitle') }}
-            </h3>
-            <div class="mt-5 space-y-3 text-sm/7 text-neutral-100">
-              <p>{{ company.location }}</p>
-              <p>{{ company.serviceArea }}</p>
-              <p>{{ t('companyPage.siteHint') }}</p>
-            </div>
-          </AppCard>
-
-          <AppCard>
-            <AppEyebrow>{{ t('companyPage.commitmentsEyebrow') }}</AppEyebrow>
-            <div class="mt-5 space-y-5">
-              <div
-                v-for="commitment in commitments"
-                :key="localize(commitment.title)"
-              >
-                <h3 class="text-lg font-semibold text-neutral-900">
-                  {{ localize(commitment.title) }}
-                </h3>
-                <p class="mt-2 text-sm/7 text-neutral-700">
-                  {{ localize(commitment.description) }}
-                </p>
-              </div>
-            </div>
-          </AppCard>
-        </div>
+      <div class="mt-6 grid gap-4 lg:grid-cols-3">
+        <AppCard v-for="activity in activityBlocks" :key="activity.title">
+          <h2 class="text-xl font-semibold text-neutral-900">
+            {{ activity.title }}
+          </h2>
+          <p class="mt-3 text-sm/7 text-neutral-700">
+            {{ activity.description }}
+          </p>
+        </AppCard>
       </div>
     </AppSection>
 
-    <CtaBanner
-      :title="t('companyPage.ctaTitle')"
-      :description="t('companyPage.ctaDescription')"
-      :primary-label="t('actions.dropWaste')"
-      primary-to="/dechets-inertes"
-      :secondary-label="t('actions.buyMaterials')"
-      secondary-to="/materiaux-recycles"
-    />
+    <AppSection flush-top>
+      <div class="grid gap-6 lg:grid-cols-[1.02fr_0.98fr]">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div
+            class="overflow-hidden border border-neutral-300 bg-neutral-200 sm:col-span-2"
+          >
+            <NuxtImg
+              :src="companyGallery[1].src"
+              :alt="companyGallery[1].alt"
+              class="h-72 w-full object-cover"
+            />
+          </div>
+          <div
+            v-for="image in companyGallery.slice(2)"
+            :key="image.src"
+            class="overflow-hidden border border-neutral-300 bg-neutral-200"
+          >
+            <NuxtImg
+              :src="image.src"
+              :alt="image.alt"
+              class="h-56 w-full object-cover"
+              sizes="(max-width: 639px) 100vw, 25vw"
+            />
+          </div>
+        </div>
+
+        <AppPanel class="p-6 sm:p-7">
+          <AppEyebrow>{{ keryvonContent.title }}</AppEyebrow>
+          <p class="mt-3 text-sm/7 text-neutral-700 sm:text-base/7">
+            {{ keryvonContent.description }}
+          </p>
+
+          <ul class="mt-5 space-y-2 text-sm/7 text-neutral-800">
+            <li v-for="point in keryvonContent.points" :key="point">
+              - {{ point }}
+            </li>
+          </ul>
+
+          <div
+            class="mt-6 border-t border-neutral-200 pt-5 text-sm/7 text-neutral-700"
+          >
+            <p>{{ company.location }}</p>
+            <p>{{ company.serviceArea }}</p>
+            <p>{{ company.hours[0] }}</p>
+          </div>
+        </AppPanel>
+      </div>
+    </AppSection>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { commitments, company, localize } from '~/data/site'
-
-const t = useCopy()
+import { company } from '~/data/site'
+import {
+  activityBlocks,
+  companyGallery,
+  keryvonContent,
+} from '~/data/site-content'
 
 usePageSeo({
-  title: 'L’entreprise',
+  title: "L'entreprise",
   description:
-    "Découvrez le site de Keryvon, l'ancrage territorial d'ATRED Valorisation et sa double offre: traitement des déchets inertes et fourniture de graves issues du recyclage, sable et graviers.",
+    'Découvrez les activités ATRED, le site de Keryvon et les services proposés aux chantiers.',
   path: '/entreprise',
-  image: '/images/about-site.jpg',
+  image: '/images/hero-site.jpg',
 })
 </script>

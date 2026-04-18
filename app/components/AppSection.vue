@@ -23,7 +23,7 @@ const props = withDefaults(
 const attrs = useAttrs()
 
 const sectionClass = computed(() =>
-  props.flushTop ? 'pt-0 pb-12 sm:pb-14 lg:pb-16' : 'py-12 sm:py-14 lg:py-16',
+  props.flushTop ? 'pt-0 pb-10 sm:pb-12 lg:pb-14' : 'py-10 sm:py-12 lg:py-14',
 )
 
 const forwardedAttrs = computed(() => {

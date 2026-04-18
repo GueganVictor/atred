@@ -36,15 +36,15 @@ const attrs = useAttrs()
 
 const variantClasses: Record<LinkVariant, string> = {
   primary:
-    'inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2',
+    'inline-flex min-h-11 items-center justify-center rounded-[8px] border border-brand-700 bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-200 focus:ring-offset-2',
   secondary:
-    'inline-flex items-center justify-center rounded-full border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 transition hover:border-neutral-400 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-300 focus:ring-offset-2',
+    'inline-flex min-h-11 items-center justify-center rounded-[8px] border border-neutral-300 bg-white px-5 py-3 text-sm font-semibold text-neutral-900 hover:border-brand-600 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-100 focus:ring-offset-2',
   light:
-    'inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-brand-700',
+    'inline-flex min-h-11 items-center justify-center rounded-[8px] border border-white bg-white px-5 py-3 text-sm font-semibold text-brand-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-700',
   'ghost-light':
-    'inline-flex items-center justify-center rounded-full border border-white/25 bg-transparent px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-brand-700',
+    'inline-flex min-h-11 items-center justify-center rounded-[8px] border border-white/50 bg-transparent px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-brand-700',
   'soft-light':
-    'inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-brand-700',
+    'inline-flex min-h-11 items-center justify-center rounded-[8px] border border-white/30 bg-white/12 px-5 py-3 text-sm font-semibold text-white hover:bg-white/18 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-brand-700',
 }
 
 const component = computed(() => (props.href ? 'a' : NuxtLink))

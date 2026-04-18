@@ -37,7 +37,7 @@ export default defineNuxtConfig({
       titleTemplate: '%s',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#171d15' },
+        { name: 'theme-color', content: '#2e6b5a' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },

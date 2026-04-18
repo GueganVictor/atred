@@ -26,7 +26,7 @@ const forwardedAttrs = computed(() => {
 })
 
 const rootClass = computed(() => [
-  'rounded-[1.25rem] border border-neutral-200 bg-white p-6 shadow-[0_14px_36px_-28px_rgba(24,33,30,0.25)]',
+  'rounded-[10px] border border-neutral-300 bg-white p-5',
   attrs.class,
 ])
 </script>

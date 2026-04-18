@@ -32,7 +32,7 @@ const toneClass = computed(() =>
 )
 
 const rootClass = computed(() => [
-  'text-[11px] font-semibold uppercase tracking-[0.18em]',
+  'text-[11px] font-semibold uppercase tracking-[0.14em]',
   toneClass.value,
   attrs.class,
 ])

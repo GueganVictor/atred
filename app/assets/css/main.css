@@ -1,30 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --color-brand-50: #eef6f5;
-  --color-brand-100: #d4e8e4;
-  --color-brand-200: #a9d1ca;
-  --color-brand-300: #74b0a6;
-  --color-brand-400: #418b81;
-  --color-brand-500: #1f655d;
-  --color-brand-600: #0c413a;
-  --color-brand-700: #0a3832;
-  --color-brand-800: #082c28;
-  --color-brand-900: #061e1b;
+  --color-brand-50: #eef5f2;
+  --color-brand-100: #dceae4;
+  --color-brand-200: #bdd3c9;
+  --color-brand-300: #93b5a6;
+  --color-brand-400: #69977f;
+  --color-brand-500: #4a7e69;
+  --color-brand-600: #2e6b5a;
+  --color-brand-700: #255849;
+  --color-brand-800: #1c4437;
+  --color-brand-900: #122e25;
 
-  --color-neutral-50: #f5f7f6;
-  --color-neutral-100: #ecefed;
-  --color-neutral-200: #dbe1de;
-  --color-neutral-300: #c2cbc6;
-  --color-neutral-400: #95a39c;
-  --color-neutral-500: #6f8179;
-  --color-neutral-600: #53655d;
-  --color-neutral-700: #3b4b44;
-  --color-neutral-800: #25312d;
-  --color-neutral-900: #18211e;
+  --color-neutral-50: #ffffff;
+  --color-neutral-100: #f7f8f8;
+  --color-neutral-200: #eceff0;
+  --color-neutral-300: #d6dcdf;
+  --color-neutral-400: #aeb8bd;
+  --color-neutral-500: #859197;
+  --color-neutral-600: #5e666b;
+  --color-neutral-700: #454c50;
+  --color-neutral-800: #31373a;
+  --color-neutral-900: #212522;
 
-  --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', sans-serif;
   --font-display: 'IBM Plex Sans', 'Segoe UI', sans-serif;
 }
 
@@ -35,12 +35,18 @@
 
   body {
     @apply bg-neutral-50 text-neutral-900 antialiased;
-    background-image:
-      radial-gradient(circle at top, rgba(12, 65, 58, 0.05), transparent 30%),
-      linear-gradient(180deg, rgba(24, 33, 30, 0.02), transparent 18rem);
+    font-family: var(--font-sans);
   }
 
   ::selection {
     @apply bg-brand-200 text-neutral-900;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    @apply transition-colors;
   }
 }

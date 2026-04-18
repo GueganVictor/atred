@@ -4,29 +4,30 @@ const messages = {
     company: "L'entreprise",
     waste: 'Déchets inertes',
     materials: 'Matériaux',
+    bsdi: 'BSDI',
     process: 'Admission & documents',
     contact: 'Contact',
   },
   actions: {
-    askQuote: 'Demander un devis',
+    askQuote: 'Contactez nous',
     contactUs: 'Nous contacter',
-    viewProcess: "Voir les modalités d'admission",
+    viewProcess: 'Voir le BSDI',
     viewMaterials: 'Voir les matériaux',
     checkAcceptedWaste: 'Vérifier les matériaux acceptés',
-    dropWaste: 'Déposer des déchets inertes',
+    dropWaste: 'Déposer des inertes',
     buyMaterials: 'Acheter des matériaux',
     sendRequest: 'Envoyer la demande',
     openMenu: 'Ouvrir le menu',
-    openMap: "Voir l'accès au site",
+    openMap: "Voir l'accès",
   },
   common: {
     needHelp: 'Un besoin chantier ?',
   },
   company: {
     name: 'ATRED Valorisation',
-    taglineShort: 'Déchets inertes & matériaux chantier',
+    taglineShort: 'Matériaux et déchets inertes',
     taglineLong:
-      'Plateforme dédiée à la prise en charge des déchets inertes du BTP et à la vente de graves issues du recyclage, sable et graviers pour les chantiers, avec admission cadrée et traçabilité réglementaire.',
+      'Vente de granulats, accueil de matériaux inertes et service de proximité au départ du site de Keryvon à Languidic.',
   },
   footer: {
     navigation: 'Navigation',
@@ -38,23 +39,23 @@ const messages = {
     heroTitle:
       'Un même site pour acheter vos matériaux et déposer vos déchets inertes.',
     heroIntro:
-      "Graves recyclées, sable, graviers issus du recyclage et de carrière. Dépôt de terres, déblais et gravats inertes compatibles — admission confirmée avant transport.",
+      'Graves recyclées, sable, graviers issus du recyclage et de carrière. Dépôt de terres, déblais et gravats inertes compatibles — admission confirmée avant transport.',
     heroMaterialsLabel: 'Matériaux à la vente',
     heroMaterialsTitle:
-      'Graves recyclées, sable et graviers pour les besoins courants du chantier.',
+      'Graves recyclées, sable et graviers de carrière, terre végétale pour les besoins courants du chantier.',
     heroMaterialsDescription:
       'Deux familles de matériaux disponibles pour remblais, couches d’assise, réglage, drainage et accès chantier.',
     heroMaterialsDetail:
       "Nous confirmons avec vous la famille de matériau, la granulométrie, le tonnage et le mode d'enlèvement selon le stock et l'usage chantier.",
     heroWasteLabel: 'Dépôt de déchets inertes',
     heroWasteTitle:
-      'Terres, déblais et gravats de chantier compatibles et admis après vérification.',
+      'Terres, déblais et gravats de chantier et de démolotion compatibles et admis après vérification.',
     heroWasteDescription:
       "Nous confirmons la compatibilité du chargement avant arrivée afin de fluidifier l'accueil, la pesée et la prise en charge sur site.",
     heroWasteAdmissionNote:
       "Admission confirmée avant transport selon la nature du chargement, son origine chantier et l'absence d'éléments non inertes.",
     heroWasteDetail:
-      "Terres inertes, déblais, béton, briques, tuiles et matériaux minéraux compatibles peuvent être orientés sur site après validation préalable.",
+      'Terres inertes, déblais, béton, briques, tuiles et matériaux minéraux compatibles peuvent être orientés sur site après validation préalable.',
     ctaTitle: 'Un chargement à faire admettre ou un tonnage à réserver ?',
     ctaDescription:
       "Contactez-nous pour confirmer l'admission d'un dépôt, la disponibilité d'un matériau et les modalités d'accès au site.",
@@ -62,9 +63,9 @@ const messages = {
   companyPage: {
     eyebrow: 'Le site et ses offres',
     title:
-      'À Languidic, ATRED traite les déchets inertes et fournit des matériaux pour les chantiers.',
+      'À Languidic, ATRED Valorisation traite vos déchets inertes et fournit matériaux pour les chantiers.',
     description:
-      "ATRED Valorisation prolonge l'activité du site de Keryvon avec une réponse terrain claire: prise en charge des matériaux inertes entrants, vente de graves issues du recyclage, de sable et de graviers, et admission encadrée.",
+      'Prise en charge des matériaux inertes entrants, vente de graves issues du recyclage, de sable et de graviers, et admission et stockage encadrée.',
     imageAlt: 'Pelleteuse et zone de traitement sur le site',
     storyEyebrow: 'Une activité de terrain',
     storyTitle: 'Du site historique à une offre complète pour les chantiers.',
@@ -102,7 +103,7 @@ const messages = {
   materialsPage: {
     eyebrow: 'Matériaux disponibles',
     title:
-      'Graves issues du recyclage, sable et graviers pour les besoins courants du chantier.',
+      'Graves issues du recyclage, sable et graviers de carrière, terre végétale pour les besoins courants du chantier.',
     description:
       'Nous proposons à la vente deux familles de matériaux: des graves issues du recyclage ainsi que du sable et des graviers issus de carrières. Les volumes sont confirmés sur devis selon stock et mode d’enlèvement.',
     imageAlt: 'Matériaux disponibles pour les chantiers',
@@ -154,8 +155,6 @@ const messages = {
     phone: 'Téléphone',
     project: 'Chantier / besoin',
     message: 'Message',
-    formHint:
-      "Sans endpoint externe configuré, l'envoi ouvre votre messagerie avec les informations déjà préparées.",
     sending: 'Envoi en cours...',
     formSuccess:
       'Votre demande a bien été préparée. Nous vous recontacterons dès que possible.',
@@ -163,18 +162,22 @@ const messages = {
       "Une erreur est survenue lors de l'envoi. Vous pouvez aussi nous contacter directement par téléphone ou email.",
   },
   estimator: {
-    eyebrow: 'Estimateur indicatif',
-    title: 'Calculez un volume de base avant devis.',
+    eyebrow: 'Calculateur',
+    title: 'Calculez votre besoin',
     description:
-      'Renseignez vos dimensions pour obtenir un ordre de grandeur en m3 et en tonnes selon le matériau sélectionné.',
+      'Choisissez un mode de calcul, indiquez la surface ou les dimensions, puis l’épaisseur.',
     material: 'Matériau',
     length: 'Longueur (m)',
     width: 'Largeur (m)',
+    surface: 'Surface (m²)',
     thickness: 'Épaisseur (cm)',
+    modeDimensions: 'Longueur / largeur',
+    modeSurface: 'Surface totale',
     estimatedVolume: 'Volume estimé',
     estimatedTonnage: 'Tonnage estimé',
+    estimatedPrice: 'Prix indicatif total',
     disclaimer:
-      'Estimation indicative non contractuelle. Le besoin réel dépend du compactage, du chantier et de la nature exacte du matériau.',
+      'Résultat indicatif. Le besoin final dépend du chantier et du compactage.',
   },
   legal: {
     eyebrow: 'Cadre légal',

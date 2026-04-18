@@ -1,5 +1,5 @@
 <template>
-  <AppPanel class="p-6 sm:p-8">
+  <AppPanel class="p-6 sm:p-7">
     <div class="grid gap-5 sm:grid-cols-2">
       <label class="space-y-2 text-sm">
         <span class="font-semibold text-neutral-800">{{
@@ -8,7 +8,7 @@
         <input
           v-model="form.company"
           type="text"
-          class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-[6px] border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
 
@@ -20,7 +20,7 @@
           v-model="form.name"
           type="text"
           required
-          class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-[6px] border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
 
@@ -32,7 +32,7 @@
           v-model="form.email"
           type="email"
           required
-          class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-[6px] border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
 
@@ -43,7 +43,7 @@
         <input
           v-model="form.phone"
           type="tel"
-          class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-[6px] border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
 
@@ -54,7 +54,7 @@
         <input
           v-model="form.project"
           type="text"
-          class="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-[6px] border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
 
@@ -66,7 +66,7 @@
           v-model="form.message"
           rows="6"
           required
-          class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-400"
+          class="w-full rounded-md border border-neutral-300 bg-white px-4 py-3 outline-none focus:border-brand-500"
         />
       </label>
     </div>
@@ -74,9 +74,7 @@
     <div
       class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p class="text-xs/6 text-neutral-600">
-        {{ t('contact.formHint') }}
-      </p>
+      <div />
       <AppButton type="button" :disabled="loading" @click="onSubmit">
         {{ loading ? t('contact.sending') : t('actions.sendRequest') }}
       </AppButton>
@@ -84,13 +82,13 @@
 
     <p
       v-if="success"
-      class="mt-4 rounded-xl bg-brand-50 px-4 py-3 text-sm text-brand-700"
+      class="mt-4 border border-brand-200 bg-brand-50 px-4 py-3 text-sm text-brand-700"
     >
       {{ t('contact.formSuccess') }}
     </p>
     <p
       v-if="error"
-      class="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-700"
+      class="mt-4 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
     >
       {{ error }}
     </p>

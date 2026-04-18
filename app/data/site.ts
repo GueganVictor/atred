@@ -52,12 +52,14 @@ type Commitment = {
 export const company = {
   name: 'ATRED Valorisation',
   legalName: 'SAS ATRED Valorisation',
-  location: 'Keryvon, 56440 Languidic',
+  location: '411 Lieu Dit Keryvon, 56440 Languidic',
   phoneDisplay: '+33 6 85 05 54 39',
   phoneLink: 'tel:+33685055439',
   email: 'isdi@atredvalorisation.fr',
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Keryvon+56440+Languidic',
+  mapsEmbedUrl:
+    'https://www.google.com/maps?output=embed&q=411+Lieu+Dit+Keryvon,+56440+Languidic',
   serviceArea:
     'Morbihan, Lorient, Hennebont, Lanester, Languidic et chantiers du bassin sud Bretagne',
   hours: [
@@ -85,7 +87,7 @@ export const services: Service[] = [
       en: 'Materials available',
     },
     description: {
-      fr: 'Graves issues du recyclage, sable et graviers de carrière sont proposés selon production, stock et besoin chantier.',
+      fr: 'Graves issues du recyclage, sable et graviers de carrière, terre végétale de carrière sont proposés selon production, stock et besoin chantier.',
       en: 'Recycled aggregates, sand and quarry gravel are offered according to production, stock and site needs.',
     },
   },
@@ -187,7 +189,7 @@ export const materialCategories: MaterialCategory[] = [
   {
     slug: 'quarry',
     title: {
-      fr: 'Sable et graviers issus de carrières',
+      fr: 'sable et graviers de carrière, terre végétale issus de carrières',
       en: 'Sand and quarry gravel',
     },
     description: {
@@ -197,6 +199,8 @@ export const materialCategories: MaterialCategory[] = [
   },
 ]
 
+// AJOUTER TERRE VEGETALE et 40/80
+// avoir la possiblité 
 export const materialsCatalog: Material[] = [
   {
     slug: 'grave-0-20',
@@ -208,7 +212,7 @@ export const materialsCatalog: Material[] = [
       fr: 'Finition d’allées, couches de réglage et petits aménagements extérieurs.',
       en: 'Driveway finishing, levelling layers and small outdoor works.',
     },
-    density: 1.7,
+    density: 1.6,
   },
   {
     slug: 'grave-0-31-5',
@@ -220,7 +224,7 @@ export const materialsCatalog: Material[] = [
       fr: 'Sous-couches et plateformes techniques pour accès chantier ou voirie légère.',
       en: 'Sub-bases and technical platforms for site access or light roadworks.',
     },
-    density: 1.8,
+    density: 1.6,
   },
   {
     slug: 'grave-0-80',
@@ -232,19 +236,7 @@ export const materialsCatalog: Material[] = [
       fr: 'Remblais, chemins d’accès, couches d’assise et mises à niveau.',
       en: 'Fill, access roads, base layers and levelling works.',
     },
-    density: 1.9,
-  },
-  {
-    slug: 'grave-0-120',
-    category: 'recycled',
-    name: 'Grave recyclée',
-    size: '0/120',
-    image: '/images/material-grave-0-120.jpg',
-    usage: {
-      fr: 'Remblais lourds, plateformes industrielles et accès de chantier robustes.',
-      en: 'Heavy fill, industrial platforms and robust site accesses.',
-    },
-    density: 2,
+    density: 1.6,
   },
   {
     slug: 'sable',
@@ -268,7 +260,7 @@ export const materialsCatalog: Material[] = [
       fr: 'Drainage, aménagements extérieurs et besoins courants en gravier calibré.',
       en: 'Drainage, outdoor works and standard needs for calibrated gravel.',
     },
-    density: 1.5,
+    density: 1.6,
   },
 ]
 
