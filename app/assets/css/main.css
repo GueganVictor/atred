@@ -31,11 +31,25 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 17px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    html {
+      font-size: 19px;
+    }
   }
 
   body {
     @apply bg-neutral-50 text-neutral-900 antialiased;
     font-family: var(--font-sans);
+    line-height: 1.55;
   }
 
   ::selection {

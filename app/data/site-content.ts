@@ -30,6 +30,15 @@ export type WasteRow = {
   instruction: string
 }
 
+export type WasteTableItem = {
+  title: string
+  description: string
+  examples: string[]
+  instruction: string
+  image: string
+  imageAlt: string
+}
+
 export type DocumentAction = {
   title: string
   description: string
@@ -51,15 +60,15 @@ export const homeContent = {
   title: 'Matériaux et déchets inertes pour vos chantiers',
   description:
     'Un site pour acheter vos granulats et déposer vos matériaux inertes après validation. Réponse directe, accès simple, service de proximité.',
-  materialBlockTitle: 'Utilisez des matériaux recyclés pour vos chantiers',
+  materialBlockTitle: 'Utilisez nos matériaux recyclés pour vos chantiers',
   materialPoints: [
     'Vente de matériaux recyclés',
     'Vente de matériaux de carrière',
     'Possibilité de transport jusqu’à vos chantiers',
   ],
-  wasteBlockTitle: 'Déposez vos déchets inertes sur un site de proximité',
+  wasteBlockTitle: 'Déchets inertes admis',
   wasteBlockText:
-    'Nous accueillons les terres, déblais et gravats inertes compatibles après vérification du chargement. En cas de doute, on valide avant transport.',
+    'Terres, déblais, béton, briques, tuiles et autres matériaux inertes compatibles après validation du chargement.',
 } as const
 
 export const activityBlocks = [
@@ -195,6 +204,7 @@ export const materials: MaterialProduct[] = [
     priceFrom: 24,
     priceUnit: '€ HT / tonne',
     density: 1.6,
+    image: '/images/materials-sable.jpeg',
     imageAlt: 'Sable disponible à la vente',
     shortUse: 'Lit de pose, remblais fins et réglage.',
     detailText:
@@ -205,7 +215,6 @@ export const materials: MaterialProduct[] = [
       { label: 'Granulométrie', value: 'Sable' },
       { label: 'Densité indicative', value: '1,6 t/m³' },
     ],
-    placeholderNote: 'TODO: ajouter la photo validée du sable',
   },
   {
     slug: 'gravier-10-14',
@@ -252,7 +261,8 @@ export const materials: MaterialProduct[] = [
     priceFrom: 15,
     priceUnit: '€ HT / tonne',
     density: 1.3,
-    imageAlt: 'Placeholder terre végétale',
+    image: '/images/materials-terre-vegetale.jpg',
+    imageAlt: 'Terre végétale disponible à la vente',
     shortUse: 'Nivellement et finitions paysagères.',
     detailText:
       'La terre végétale est prévue pour les finitions, le nivellement et les travaux paysagers. La photo produit reste à intégrer dès qu’elle est disponible.',
@@ -262,7 +272,6 @@ export const materials: MaterialProduct[] = [
       { label: 'Granulométrie', value: 'Terre végétale' },
       { label: 'Densité indicative', value: '1,3 t/m³' },
     ],
-    placeholderNote: 'TODO: ajouter la photo validée de la terre végétale',
   },
 ]
 
@@ -318,6 +327,57 @@ export const wasteRows: WasteRow[] = [
   },
 ]
 
+export const wasteTableItems: WasteTableItem[] = [
+  {
+    title: 'Terres et déblais',
+    description:
+      'Matériaux minéraux non pollués issus de terrassement et de déblais.',
+    examples: [
+      'Terres inertes non polluées',
+      'Déblais minéraux propres',
+      'Cailloux et pierres',
+    ],
+    instruction: 'Validation avant transport et chargement propre.',
+    image: '/images/keryvon-excavator.jpeg',
+    imageAlt: 'Terres et déblais sur le site',
+  },
+  {
+    title: 'Béton, briques, tuiles',
+    description:
+      'Déchets minéraux issus de démolition ou de déconstruction, hors éléments indésirables.',
+    examples: ['Béton', 'Briques', 'Tuiles', 'Céramiques'],
+    instruction: 'Sans bois, plâtre, plastique ni éléments pollués.',
+    image: '/images/dechets-acceptes-1.jpg',
+    imageAlt: 'Déchets de béton et gravats admis',
+  },
+  {
+    title: 'Enrobés admis',
+    description:
+      'Enrobés sans goudron et matériaux bitumineux autorisés après contrôle.',
+    examples: [
+      'Enrobés sans goudron',
+      'Mélanges bitumineux autorisés',
+      'Chargements propres',
+    ],
+    instruction: 'À confirmer avec l’équipe avant venue.',
+    image: '/images/dechets-acceptes-2.jpg',
+    imageAlt: 'Enrobés admis sur le site',
+  },
+  {
+    title: 'Mélanges d’inertes propres',
+    description:
+      'Mélanges d’inertes triés, hors déchets indésirables et hors terres polluées.',
+    examples: [
+      'Mélanges d’inertes propres',
+      'Chargements triés',
+      'Matériaux minéraux compatibles',
+    ],
+    instruction: '',
+    image: '/images/keryvon-recycling.jpeg',
+    imageAlt: 'Mélanges d’inertes sur le site',
+  },
+]
+
 export const wasteRejected = [
   'Déchets dangereux ou pollués',
   'Plâtre, bois, plastique et métaux mélangés',
@@ -331,10 +391,10 @@ export const wastePageContent = {
   description:
     'Nous accueillons les matériaux inertes compatibles avec le site. En cas de doute, on valide toujours le chargement avant transport.',
   cardsTitle: 'Ce que vous pouvez nous apporter',
-  tableTitle: 'Repères simples avant votre venue',
+  tableTitle: 'Les matériaux inertes reçus sur le site',
   tableDescription:
-    'Le tableau ci-dessous donne une vue rapide. Si le chargement est mixte ou si un doute existe, prenez contact avant de vous déplacer.',
-  rejectedTitle: 'À part ou à confirmer',
+    'Chaque ligne reprend une famille de matériaux avec un repère simple avant votre venue. Si le chargement est mixte ou si un doute existe, contactez-nous avant de vous déplacer.',
+  rejectedTitle: 'Non admissibles',
   rejectedDescription:
     'Certains matériaux ne sont pas admis sur le site ou demandent une vérification avant tout transport.',
   reminderTitle: 'Admission préalable',
@@ -344,7 +404,7 @@ export const wastePageContent = {
 
 export const materialsPageContent = {
   eyebrow: 'Matériaux',
-  title: 'Utilisez des matériaux recyclés pour vos chantiers',
+  title: 'Utilisez nos matériaux recyclés pour vos chantiers',
   description:
     'Vente de matériaux recyclés, vente de matériaux de carrière et possibilité de transport jusqu’à vos chantiers.',
   familyTitle: 'Matériaux disponibles à la vente',
@@ -391,7 +451,7 @@ export const bsdiPageContent = {
     {
       title: 'Validation du chargement',
       description:
-        "On vérifie l'origine du chantier, la nature des matériaux et les documents utiles avant l'arrivée sur site.",
+        "Nous vérifions l'origine du chantier, la nature des matériaux et les documents avant l'arrivée sur site.",
     },
     {
       title: 'Accueil et pesée',
@@ -421,10 +481,9 @@ export const bsdiActions: DocumentAction[] = [
   },
   {
     title: 'Remplir',
-    description: 'Le remplissage en ligne sera ajouté plus tard.',
+    description: 'Remplisser votre document en ligne avant de le télécharger.',
     actionLabel: 'Bientôt disponible',
     disabled: true,
-    note: 'Le bouton reste volontairement inactif pour la V1.',
   },
   {
     title: 'Aide',

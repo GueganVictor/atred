@@ -28,7 +28,7 @@
 
       <button
         type="button"
-        class="inline-flex size-11 items-center justify-center rounded-[8px] border border-neutral-300 bg-white text-neutral-900 lg:hidden"
+        class="inline-flex size-11 items-center justify-center rounded-lg border border-neutral-300 bg-white text-neutral-900 lg:hidden"
         :aria-label="t('actions.openMenu')"
         @click="isOpen = !isOpen"
       >

@@ -5,11 +5,11 @@
         <div class="max-w-2xl">
           <AppEyebrow>{{ eyebrow }}</AppEyebrow>
           <h1
-            class="mt-2 font-display text-3xl/tight font-semibold text-neutral-900 sm:text-4xl lg:text-[2.75rem]"
+            class="mt-2 font-display text-[2.35rem]/tight font-semibold text-neutral-900 sm:text-[2.9rem] lg:text-[3.2rem]"
           >
             {{ title }}
           </h1>
-          <p class="mt-4 max-w-xl text-sm/7 text-neutral-700 sm:text-base/7">
+          <p class="mt-4 max-w-xl text-base/8 text-neutral-700 sm:text-lg/8">
             {{ description }}
           </p>
           <slot />

@@ -1,14 +1,6 @@
 <template>
   <div>
-    <PageHero
-      :eyebrow="bsdiPageContent.eyebrow"
-      :title="bsdiPageContent.title"
-      :description="bsdiPageContent.description"
-      image="/images/bsdi-document.png"
-      image-alt="BSDI"
-    />
-
-    <AppSection flush-top>
+    <AppSection>
       <div class="grid gap-4 md:grid-cols-3">
         <DocumentActionCard
           v-for="action in bsdiActions"

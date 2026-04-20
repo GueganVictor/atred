@@ -31,14 +31,23 @@
               class="h-72 w-full object-cover"
             />
           </div>
-          <div
-            v-for="image in companyGallery.slice(2)"
-            :key="image.src"
-            class="overflow-hidden border border-neutral-300 bg-neutral-200"
-          >
+          <div class="overflow-hidden border border-neutral-300 bg-neutral-200">
+            <video
+              class="h-56 w-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              :poster="companyGallery[2].src"
+            >
+              <source src="/videos/keryvon-site.mov" type="video/quicktime" />
+            </video>
+          </div>
+          <div class="overflow-hidden border border-neutral-300 bg-neutral-200">
             <NuxtImg
-              :src="image.src"
-              :alt="image.alt"
+              :src="companyGallery[3].src"
+              :alt="companyGallery[3].alt"
               class="h-56 w-full object-cover"
               sizes="(max-width: 639px) 100vw, 25vw"
             />

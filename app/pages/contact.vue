@@ -6,24 +6,29 @@
           <AppEyebrow>Contact direct</AppEyebrow>
           <div class="mt-5 space-y-5 text-base/8 text-neutral-700 sm:text-lg/8">
             <div>
-              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500"
+              >
                 Adresse
               </p>
               <p>{{ company.location }}</p>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500"
+              >
                 Téléphone
               </p>
               <a
                 :href="company.phoneLink"
                 class="font-semibold text-neutral-900 hover:text-brand-700"
-              >{{
-                company.phoneDisplay
-              }}</a>
+                >{{ company.phoneDisplay }}</a
+              >
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500"
+              >
                 Email
               </p>
               <a
@@ -34,7 +39,9 @@
               </a>
             </div>
             <div>
-              <p class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500">
+              <p
+                class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500"
+              >
                 Horaires
               </p>
               <ul class="mt-1 space-y-1">
@@ -45,27 +52,12 @@
         </AppCard>
 
         <AppCard class="overflow-hidden p-0">
-          <div class="border-b border-neutral-300 px-5 py-4">
-            <AppEyebrow>Plan d'accès</AppEyebrow>
-            <div class="mt-3 flex flex-wrap items-center justify-between gap-3">
-              <p class="text-sm/7 text-neutral-700">
-                Keryvon, 56440 Languidic
-              </p>
-              <AppLinkButton
-                :href="company.mapsUrl"
-                target="_blank"
-                rel="noreferrer"
-                variant="secondary"
-              >
-                Ouvrir la carte
-              </AppLinkButton>
-            </div>
-          </div>
+          <AppEyebrow>Plan d'accès</AppEyebrow>
 
           <iframe
             :src="company.mapsEmbedUrl"
             title="Plan d'accès au site de Keryvon"
-            class="h-84 w-full border-0"
+            class="h-84 w-full border-0 mt-4"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           />

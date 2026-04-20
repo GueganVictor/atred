@@ -23,7 +23,6 @@
         v-if="!disabled && (to || href)"
         :to="to"
         :href="href"
-        :download="href?.startsWith('/documents/') ? '' : undefined"
         :target="href?.startsWith('/documents/') ? '_blank' : undefined"
         :rel="href?.startsWith('/documents/') ? 'noreferrer' : undefined"
       >

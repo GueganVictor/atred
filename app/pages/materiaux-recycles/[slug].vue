@@ -68,9 +68,6 @@
 
             <div class="flex flex-wrap gap-3">
               <AppLinkButton to="/contact"> Contactez nous </AppLinkButton>
-              <AppLinkButton to="/procedure-documents" variant="secondary">
-                Voir le BSDI
-              </AppLinkButton>
             </div>
           </div>
         </AppPanel>

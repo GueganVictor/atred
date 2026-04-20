@@ -2,11 +2,15 @@
   <div>
     <section>
       <AppContainer class="py-6 sm:py-8 lg:py-10">
-        <AppPanel class="relative min-h-96 overflow-hidden p-6 sm:px-8 sm:py-7 lg:min-h-112">
-          <div class="absolute inset-y-0 right-0 hidden w-full md:block md:w-[58%]">
+        <AppPanel
+          class="relative min-h-96 overflow-hidden p-6 sm:px-8 sm:py-7 lg:min-h-112"
+        >
+          <div
+            class="absolute inset-y-0 right-0 hidden w-full md:block md:w-[58%]"
+          >
             <NuxtImg
-              :src="companyGallery[0].src"
-              :alt="companyGallery[0].alt"
+              :src="companyGallery[1].src"
+              :alt="companyGallery[1].alt"
               class="size-full object-cover object-center"
             />
             <div
@@ -15,7 +19,6 @@
           </div>
 
           <div class="relative z-10 max-w-xl">
-            <AppEyebrow>{{ homeContent.eyebrow }}</AppEyebrow>
             <h1
               class="mt-2 max-w-xl font-display text-3xl/tight font-semibold text-neutral-900 sm:text-4xl lg:text-[2.85rem]"
             >
@@ -79,38 +82,67 @@
 
     <AppSection flush-top>
       <div class="grid gap-6">
-        <AppPanel class="p-6 sm:p-7">
-          <AppEyebrow>Déchets inertes</AppEyebrow>
-          <h2
-            class="mt-2 font-display text-2xl/tight font-semibold text-neutral-900 sm:text-[2rem]"
+        <div class="space-y-5">
+          <SectionHeading
+            eyebrow="Déchets inertes"
+            :title="homeContent.wasteBlockTitle"
+            :description="homeContent.wasteBlockText"
+          />
+        </div>
+
+        <div class="overflow-hidden border border-neutral-300 bg-white">
+          <div
+            class="hidden grid-cols-[6.5rem_minmax(0,14rem)_1fr] gap-4 border-b border-neutral-300 bg-neutral-100 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-neutral-700 md:grid"
           >
-            {{ homeContent.wasteBlockTitle }}
-          </h2>
+            <span>Visuel</span>
+            <span>Famille</span>
+            <span>Repère</span>
+          </div>
 
-          <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <article
+            v-for="item in wasteTableItems"
+            :key="item.title"
+            class="grid gap-4 border-b border-neutral-300 p-4 last:border-b-0 sm:px-5 md:grid-cols-[6.5rem_minmax(0,14rem)_1fr] md:items-center"
+          >
             <div
-              v-for="card in wasteCards"
-              :key="card.title"
-              class="border border-neutral-300 bg-neutral-50 p-4"
+              class="overflow-hidden border border-neutral-300 bg-neutral-100"
             >
-              <h3 class="text-lg font-semibold text-neutral-900">
-                {{ card.title }}
-              </h3>
-              <ul class="mt-3 space-y-1 text-sm/7 text-neutral-800">
-                <li v-for="item in card.items" :key="item">- {{ item }}</li>
-              </ul>
+              <NuxtImg
+                :src="item.image"
+                :alt="item.imageAlt"
+                class="h-20 w-full object-cover"
+                sizes="96px"
+              />
             </div>
-          </div>
 
-          <div class="mt-6 flex flex-wrap gap-3">
-            <AppLinkButton to="/dechets-inertes">
-              Voir les matériaux admis
-            </AppLinkButton>
-            <AppLinkButton to="/contact" variant="secondary">
-              Valider un chargement
-            </AppLinkButton>
-          </div>
-        </AppPanel>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-900 sm:text-xl">
+                {{ item.title }}
+              </h3>
+            </div>
+
+            <div>
+              <p class="text-base/7 text-neutral-700">
+                {{ item.description }}
+              </p>
+              <p class="mt-2 text-sm/6 text-neutral-600">
+                Exemples : {{ item.examples.join(', ') }}
+              </p>
+              <p class="mt-2 text-sm/6 font-semibold text-brand-700">
+                {{ item.instruction }}
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <AppLinkButton to="/dechets-inertes">
+            Voir les déchets admis
+          </AppLinkButton>
+          <AppLinkButton to="/contact" variant="secondary">
+            Valider un chargement
+          </AppLinkButton>
+        </div>
 
         <AppPanel class="overflow-hidden p-0">
           <div class="grid gap-0 md:grid-cols-[0.92fr_1.08fr]">
@@ -139,7 +171,6 @@
         </AppPanel>
       </div>
     </AppSection>
-
   </div>
 </template>
 
@@ -149,7 +180,7 @@ import {
   homeContent,
   homeMaterials,
   keryvonContent,
-  wasteCards,
+  wasteTableItems,
 } from '~/data/site-content'
 
 usePageSeo({
