@@ -47,7 +47,7 @@
                 Voir les matériaux
               </AppLinkButton>
               <AppLinkButton to="/dechets-inertes" variant="secondary">
-                Déposer des inertes
+                Déposer vos gravats
               </AppLinkButton>
             </div>
           </div>
@@ -150,9 +150,9 @@
               class="overflow-hidden border-b border-neutral-300 md:border-r md:border-b-0"
             >
               <NuxtImg
-                :src="companyGallery[1].src"
-                :alt="companyGallery[1].alt"
-                class="size-full min-h-64 object-cover"
+                :src="companyGallery[4].src"
+                :alt="companyGallery[4].alt"
+                class=" object-cover w-full max-h-95"
                 sizes="(max-width: 767px) 100vw, 40vw"
               />
             </div>

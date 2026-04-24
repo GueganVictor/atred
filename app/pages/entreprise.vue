@@ -4,7 +4,7 @@
       <SectionHeading
         eyebrow="ATRED"
         title="Nos activités"
-        description="Trois axes simples: vente de granulats, valorisation des matériaux et accueil de matériaux inertes."
+        description="Trois axes simples: accueil de matériaux inertes, valorisation des matériaux et vente de granulats."
       />
 
       <div class="mt-6 grid gap-4 lg:grid-cols-3">

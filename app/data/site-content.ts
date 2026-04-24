@@ -57,9 +57,9 @@ export const siteDesign = {
 
 export const homeContent = {
   eyebrow: 'Keryvon - Languidic',
-  title: 'Matériaux et déchets inertes pour vos chantiers',
+  title: 'Centre de recyclage et valorisation de matériaux',
   description:
-    'Un site pour acheter vos granulats et déposer vos matériaux inertes après validation. Réponse directe, accès simple, service de proximité.',
+    'Le site ISDI classe III de Languidic réceptionne, stocke et valorise vos gravats et matériaux issus de travaux de TP et de démolition. ',
   materialBlockTitle: 'Utilisez nos matériaux recyclés pour vos chantiers',
   materialPoints: [
     'Vente de matériaux recyclés',
@@ -73,9 +73,9 @@ export const homeContent = {
 
 export const activityBlocks = [
   {
-    title: 'La vente de granulats',
+    title: 'L’accueil de matériaux inertes',
     description:
-      'Pour tous vos travaux d’aménagement ou de construction, nous vous proposons une gamme de matériaux (sables et gravier) issus de carrière ainsi que de la terre végétale.',
+      'C’est l\'axe premier de la valorisation des excédents de chantier. Triés, criblés, concassés, vos gravats sont transformés en matériaux Ne pouvant être recyclés, certains matériaux, sans impact sur l’environnement, sont stockés sur notre site. A termes une nouvelle plateforme agricole verra le jour avec l’objectif de valorisation du foncier concerné.',
   },
   {
     title: 'La valorisation des matériaux',
@@ -83,9 +83,9 @@ export const activityBlocks = [
       'Depuis de nombreuses années et dans une logique d’économie circulaire, nous accueillons des matériaux issus des chantiers de déconstruction des travaux publics ou du bâtiment. Une fois retraités (tri, concassage, criblage…) sur notre site, ces matériaux sont revendus essentiellement pour les chantiers de travaux publics et ou tout autre chantier d’aménagement.',
   },
   {
-    title: 'L’accueil de matériaux inertes',
+    title: 'La vente de granulats',
     description:
-      'C’est un autre axe de la valorisation des excédents de chantier. Ne pouvant être recyclés, certains matériaux, sans impact sur l’environnement, sont stockés sur notre site. A termes une nouvelle plateforme agricole verra le jour avec l’objectif de valorisation du foncier concerné.',
+      'Pour tous vos travaux d’aménagement ou de construction, nous vous proposons une gamme de matériaux recyclés mais aussi sable et graviers issus de carrière ainsi que de la terre végétale.',
   },
 ] as const
 
@@ -121,7 +121,7 @@ export const materials: MaterialProduct[] = [
     slug: 'grave-0-20',
     name: 'Grave 0/20',
     family: 'recycled',
-    priceFrom: 18,
+    priceFrom: 8,
     priceUnit: '€ HT / tonne',
     density: 1.6,
     image: '/images/material-grave-0-20.jpg',
@@ -144,7 +144,7 @@ export const materials: MaterialProduct[] = [
     slug: 'grave-0-31-5',
     name: 'Grave 0/31,5',
     family: 'recycled',
-    priceFrom: 16,
+    priceFrom: 9,
     priceUnit: '€ HT / tonne',
     density: 1.6,
     image: '/images/material-grave-0-31-5.jpg',
@@ -163,7 +163,7 @@ export const materials: MaterialProduct[] = [
     slug: 'grave-0-80',
     name: 'Grave 0/80',
     family: 'recycled',
-    priceFrom: 14,
+    priceFrom: 8,
     priceUnit: '€ HT / tonne',
     density: 1.6,
     image: '/images/material-grave-0-80.jpg',
@@ -201,7 +201,7 @@ export const materials: MaterialProduct[] = [
     slug: 'sable',
     name: 'Sable',
     family: 'quarry',
-    priceFrom: 24,
+    priceFrom: 33,
     priceUnit: '€ HT / tonne',
     density: 1.6,
     image: '/images/materials-sable.jpeg',
@@ -220,7 +220,7 @@ export const materials: MaterialProduct[] = [
     slug: 'gravier-10-14',
     name: 'Gravier 10/14',
     family: 'quarry',
-    priceFrom: 28,
+    priceFrom: 33,
     priceUnit: '€ HT / tonne',
     density: 1.5,
     imageAlt: 'Gravier 10/14 disponible à la vente',
@@ -531,6 +531,10 @@ export const companyGallery = [
   {
     src: '/images/keryvon-excavator.jpeg',
     alt: 'Pelle et zone de matériaux sur le site',
+  },
+    {
+    src: '/images/keryvon-borne.png',
+    alt: 'Borne de pesage à l\'entrée du site.',
   },
 ] as const
 

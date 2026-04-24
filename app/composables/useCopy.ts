@@ -14,7 +14,7 @@ const messages = {
     viewProcess: 'Voir le BSDI',
     viewMaterials: 'Voir les matériaux',
     checkAcceptedWaste: 'Vérifier les matériaux acceptés',
-    dropWaste: 'Déposer des inertes',
+    dropWaste: 'Déposer vos gravats',
     buyMaterials: 'Acheter des matériaux',
     sendRequest: 'Envoyer la demande',
     openMenu: 'Ouvrir le menu',
