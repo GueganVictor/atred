@@ -52,14 +52,14 @@ type Commitment = {
 export const company = {
   name: 'ATRED Valorisation',
   legalName: 'SAS ATRED Valorisation',
-  location: '411 Lieu Dit Keryvon, 56440 Languidic',
+  location: 'Lieu Dit Keryvon, 56440 Languidic',
   phoneDisplay: '+33 6 85 05 54 39',
   phoneLink: 'tel:+33685055439',
   email: 'isdi@atredvalorisation.fr',
   mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Keryvon+56440+Languidic',
+    'https://www.google.com/maps/search/?api=1&query=47.85579082491541+-3.1720683701739545',
   mapsEmbedUrl:
-    'https://www.google.com/maps?output=embed&q=411+Lieu+Dit+Keryvon,+56440+Languidic',
+    'https://www.google.com/maps?output=embed&q=47.85579082491541+-3.1720683701739545',
   serviceArea:
     'Morbihan, Lorient, Hennebont, Lanester, Languidic et chantiers du bassin sud Bretagne',
   hours: [
@@ -207,7 +207,7 @@ export const materialsCatalog: Material[] = [
     category: 'recycled',
     name: 'Grave recyclée',
     size: '0/20',
-    image: '/images/material-grave-0-20.jpg',
+    image: '/images/materiaux/graves_0_20.jpg',
     usage: {
       fr: 'Finition d’allées, couches de réglage et petits aménagements extérieurs.',
       en: 'Driveway finishing, levelling layers and small outdoor works.',
@@ -219,7 +219,7 @@ export const materialsCatalog: Material[] = [
     category: 'recycled',
     name: 'Grave recyclée',
     size: '0/31,5',
-    image: '/images/material-grave-0-31-5.jpg',
+    image: '/images/materiaux/graves_0_315.jpg',
     usage: {
       fr: 'Sous-couches et plateformes techniques pour accès chantier ou voirie légère.',
       en: 'Sub-bases and technical platforms for site access or light roadworks.',
@@ -231,7 +231,7 @@ export const materialsCatalog: Material[] = [
     category: 'recycled',
     name: 'Grave recyclée',
     size: '0/80',
-    image: '/images/material-grave-0-80.jpg',
+    image: '/images/materiaux/graves_0_80.jpg',
     usage: {
       fr: 'Remblais, chemins d’accès, couches d’assise et mises à niveau.',
       en: 'Fill, access roads, base layers and levelling works.',
@@ -243,7 +243,7 @@ export const materialsCatalog: Material[] = [
     category: 'quarry',
     name: 'Sable',
     size: '',
-    image: '/images/materials-hero.png',
+    image: '/images/materiaux/sable.jpg',
     usage: {
       fr: 'Lit de pose, remblais fins, réglage et finitions selon le besoin chantier.',
       en: 'Bedding, fine fill, levelling and finishing according to site needs.',
@@ -255,7 +255,7 @@ export const materialsCatalog: Material[] = [
     category: 'quarry',
     name: 'Gravier',
     size: '10/14',
-    image: '/images/materials-hero.png',
+    image: '/images/materiaux/gravier_10_14.jpg',
     usage: {
       fr: 'Drainage, aménagements extérieurs et besoins courants en gravier calibré.',
       en: 'Drainage, outdoor works and standard needs for calibrated gravel.',

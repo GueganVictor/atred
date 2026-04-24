@@ -100,7 +100,7 @@
           </div>
 
           <article
-            v-for="item in wasteTableItems"
+            v-for="item in wastePreviewItems"
             :key="item.title"
             class="grid gap-4 border-b border-neutral-300 p-4 last:border-b-0 sm:px-5 md:grid-cols-[6.5rem_minmax(0,14rem)_1fr] md:items-center"
           >
@@ -124,12 +124,6 @@
             <div>
               <p class="text-base/7 text-neutral-700">
                 {{ item.description }}
-              </p>
-              <p class="mt-2 text-sm/6 text-neutral-600">
-                Exemples : {{ item.examples.join(', ') }}
-              </p>
-              <p class="mt-2 text-sm/6 font-semibold text-brand-700">
-                {{ item.instruction }}
               </p>
             </div>
           </article>
@@ -180,7 +174,7 @@ import {
   homeContent,
   homeMaterials,
   keryvonContent,
-  wasteTableItems,
+  wastePreviewItems,
 } from '~/data/site-content'
 
 usePageSeo({

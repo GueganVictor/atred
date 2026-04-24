@@ -18,23 +18,9 @@ export type MaterialProduct = {
   placeholderNote?: string
 }
 
-export type WasteCard = {
+export type WasteDefinitionItem = {
   title: string
   description: string
-  items: string[]
-}
-
-export type WasteRow = {
-  family: string
-  examples: string
-  instruction: string
-}
-
-export type WasteTableItem = {
-  title: string
-  description: string
-  examples: string[]
-  instruction: string
   image: string
   imageAlt: string
 }
@@ -49,14 +35,21 @@ export type DocumentAction = {
   note?: string
 }
 
+export type BsdiHelpSection = {
+  title: string
+  description: string
+  items: string[]
+  note?: string
+}
+
 export const siteDesign = {
   siteTitle: 'ATRED Valorisation',
   siteDescription:
-    'ATRED Valorisation accueille les matériaux inertes et vend des granulats pour les chantiers au départ de Keryvon à Languidic.',
+    'ATRED Valorisation accueille les matériaux inertes et vend des granulats pour les chantiers au départ de Languidic.',
 } as const
 
 export const homeContent = {
-  eyebrow: 'Keryvon - Languidic',
+  eyebrow: 'Languidic',
   title: 'Centre de recyclage et valorisation de matériaux',
   description:
     'Le site ISDI classe III de Languidic réceptionne, stocke et valorise vos gravats et matériaux issus de travaux de TP et de démolition. ',
@@ -90,9 +83,9 @@ export const activityBlocks = [
 ] as const
 
 export const keryvonContent = {
-  title: 'Le site de Keryvon',
+  title: 'Le site de Languidic',
   description:
-    'Le site de Keryvon est entièrement automatisé pour nos clients en compte. Une fois votre compte validé, votre badge permet un gain de temps pour vos dépôts et enlèvements. Notre site facilement accessible et proche de la RN 24 est l’assurance d’une offre de proximité, de circuit court qui s’appuie sur l’écoute et les compétences reconnues de notre équipe.',
+    'Le site de Languidic est entièrement automatisé pour nos clients en compte. Une fois votre compte validé, votre badge permet un gain de temps pour vos dépôts et enlèvements. Notre site facilement accessible et proche de la RN 24 est l’assurance d’une offre de proximité, de circuit court qui s’appuie sur l’écoute et les compétences reconnues de notre équipe.',
   points: [
     'Site automatisé pour les clients en compte',
     'Badge d’accès après validation du compte',
@@ -124,7 +117,7 @@ export const materials: MaterialProduct[] = [
     priceFrom: 8,
     priceUnit: '€ HT / tonne',
     density: 1.6,
-    image: '/images/material-grave-0-20.jpg',
+    image: '/images/materiaux/graves_0_20.jpg',
     imageAlt: 'Grave 0/20 disponible à la vente',
     shortUse: 'Réglage, finition et petits aménagements.',
     detailText:
@@ -147,7 +140,7 @@ export const materials: MaterialProduct[] = [
     priceFrom: 9,
     priceUnit: '€ HT / tonne',
     density: 1.6,
-    image: '/images/material-grave-0-31-5.jpg',
+    image: '/images/materiaux/graves_0_315.jpg',
     imageAlt: 'Grave 0/31,5 disponible à la vente',
     shortUse: 'Sous-couche et plateforme technique.',
     detailText:
@@ -166,7 +159,7 @@ export const materials: MaterialProduct[] = [
     priceFrom: 8,
     priceUnit: '€ HT / tonne',
     density: 1.6,
-    image: '/images/material-grave-0-80.jpg',
+    image: '/images/materiaux/graves_0_80.jpg',
     imageAlt: 'Grave 0/80 disponible à la vente',
     shortUse: 'Remblais, chemins et couches d’assise.',
     detailText:
@@ -179,32 +172,13 @@ export const materials: MaterialProduct[] = [
     ],
   },
   {
-    slug: 'grave-0-120',
-    name: 'Grave 0/120',
-    family: 'recycled',
-    priceFrom: 13,
-    priceUnit: '€ HT / tonne',
-    density: 1.7,
-    image: '/images/material-grave-0-120.jpg',
-    imageAlt: 'Grave 0/120 disponible à la vente',
-    shortUse: 'Gros remblai et mise à niveau.',
-    detailText:
-      'La grave 0/120 est prévue pour les gros volumes, les remises à niveau et les remblais plus lourds. Elle répond aux besoins de base quand il faut avancer vite.',
-    applications: ['Gros remblais', 'Mise à niveau', 'Terrassement'],
-    technicalInfo: [
-      { label: 'Famille', value: 'Recyclés' },
-      { label: 'Granulométrie', value: '0/120' },
-      { label: 'Densité indicative', value: '1,7 t/m³' },
-    ],
-  },
-  {
     slug: 'sable',
     name: 'Sable',
     family: 'quarry',
     priceFrom: 33,
     priceUnit: '€ HT / tonne',
     density: 1.6,
-    image: '/images/materials-sable.jpeg',
+    image: '/images/materiaux/sable.jpg',
     imageAlt: 'Sable disponible à la vente',
     shortUse: 'Lit de pose, remblais fins et réglage.',
     detailText:
@@ -223,6 +197,7 @@ export const materials: MaterialProduct[] = [
     priceFrom: 33,
     priceUnit: '€ HT / tonne',
     density: 1.5,
+    image: '/images/materiaux/gravier_10_14.jpg',
     imageAlt: 'Gravier 10/14 disponible à la vente',
     shortUse: 'Drainage et aménagement extérieur.',
     detailText:
@@ -233,26 +208,25 @@ export const materials: MaterialProduct[] = [
       { label: 'Granulométrie', value: '10/14' },
       { label: 'Densité indicative', value: '1,5 t/m³' },
     ],
-    placeholderNote: 'TODO: ajouter la photo validée du gravier 10/14',
   },
   {
     slug: '40-80',
     name: '40/80',
     family: 'quarry',
-    priceFrom: 30,
+    priceFrom: 8,
     priceUnit: '€ HT / tonne',
-    density: 1.5,
-    imageAlt: 'Placeholder 40/80',
+    density: 1.6,
+    image: '/images/materiaux/graves_40_80.jpg',
+    imageAlt: '40/80 disponible à la vente',
     shortUse: 'Drainage et couche grossière.',
     detailText:
-      'Le 40/80 convient aux usages de drainage et aux besoins de gros calibre. Cette fiche est prête, il restera à ajouter la photo produit validée.',
+      'Le 40/80 convient aux usages de drainage et aux besoins de gros calibre.',
     applications: ['Drainage', 'Couche grossière', 'Aménagement technique'],
     technicalInfo: [
       { label: 'Famille', value: 'De carrière' },
       { label: 'Granulométrie', value: '40/80' },
       { label: 'Densité indicative', value: '1,5 t/m³' },
     ],
-    placeholderNote: 'TODO: ajouter la photo validée du 40/80',
   },
   {
     slug: 'terre-vegetale',
@@ -261,11 +235,11 @@ export const materials: MaterialProduct[] = [
     priceFrom: 15,
     priceUnit: '€ HT / tonne',
     density: 1.3,
-    image: '/images/materials-terre-vegetale.jpg',
+    image: '/images/materiaux/terre_vegetale.jpg',
     imageAlt: 'Terre végétale disponible à la vente',
     shortUse: 'Nivellement et finitions paysagères.',
     detailText:
-      'La terre végétale est prévue pour les finitions, le nivellement et les travaux paysagers. La photo produit reste à intégrer dès qu’elle est disponible.',
+      'La terre végétale est prévue pour les finitions, le nivellement et les travaux paysagers.',
     applications: ['Nivellement', 'Finitions paysagères', 'Aménagement'],
     technicalInfo: [
       { label: 'Famille', value: 'De carrière' },
@@ -275,108 +249,84 @@ export const materials: MaterialProduct[] = [
   },
 ]
 
-export const wasteCards: WasteCard[] = [
+export const wasteDefinitionItems: WasteDefinitionItem[] = [
   {
-    title: 'Terres et déblais',
+    title: 'Béton non ferraillé',
     description:
-      'Matériaux minéraux non pollués issus de terrassement et de déblais.',
-    items: [
-      'Terres inertes non polluées',
-      'Déblais minéraux propres',
-      'Cailloux et pierres',
-    ],
+      'Déchets de béton issus de la démolition, de la rénovation ou de la construction de bâtiments qui ne comportent pas d’armature métallique.',
+    image: '/images/dechets-inertes/beton-non-ferraille.png',
+    imageAlt: 'Pictogramme béton non ferraillé',
   },
   {
-    title: 'Gravats de chantier',
+    title: 'Béton ferraillé',
     description:
-      'Déchets minéraux issus de démolition ou de déconstruction, hors éléments indésirables.',
-    items: ['Béton', 'Briques', 'Tuiles', 'Céramiques'],
+      'Déchets de béton issus de la démolition, de la rénovation ou de la construction de bâtiments qui comportent une armature métallique nécessitant une opération spécifique de déferraillage.',
+    image: '/images/dechets-inertes/beton-ferraille.png',
+    imageAlt: 'Pictogramme béton ferraillé',
   },
   {
-    title: 'Mélanges minéraux admis',
+    title: 'Béton durci en centrale',
     description:
-      'Certains mélanges d’inertes et enrobés peuvent être admis après contrôle.',
-    items: [
-      'Enrobés sans goudron',
-      'Mélanges d’inertes propres',
-      'Chargements triés',
-    ],
+      'Béton durci provenant directement d’une unité de production de béton.',
+    image: '/images/dechets-inertes/beton-durci-centrale.png',
+    imageAlt: 'Pictogramme béton durci en centrale',
+  },
+  {
+    title: 'Briques',
+    description:
+      'Déchets de briques de terre cuite de parement, de cloison ou de structure, pleines ou creuses.',
+    image: '/images/dechets-inertes/briques.png',
+    imageAlt: 'Pictogramme briques',
+  },
+  {
+    title: 'Tuiles',
+    description: 'Déchets de tuiles en terre cuite.',
+    image: '/images/dechets-inertes/tuiles.png',
+    imageAlt: 'Pictogramme tuiles',
+  },
+  {
+    title: 'Céramique',
+    description:
+      'Déchets de céramique issus de la construction, de la rénovation ou de la démolition, et notamment : les éléments de carrelages, de faïences et l’ensemble des équipements sanitaires en céramique.',
+    image: '/images/dechets-inertes/ceramique.png',
+    imageAlt: 'Pictogramme céramique',
+  },
+  {
+    title: 'Pierre de tailles, pavés',
+    description:
+      'Déchets de pierres de taille ou pavés issus de pierres naturelles, taillés et façonnés et utilisés pour la construction d’un bâtiment, son ornement ou son aménagement y compris sur la parcelle.',
+    image: '/images/dechets-inertes/pierre-tailles-paves.png',
+    imageAlt: 'Pictogramme pierre de tailles et pavés',
+  },
+  {
+    title: 'Mélanges bitumineux',
+    description:
+      'Déchets composés de bitume (hors membranes bitumineuses, hors goudron) issus de la déconstruction ou de l’entretien des voies de circulation et de stationnement sur la parcelle d’un bâtiment.',
+    image: '/images/dechets-inertes/melanges-bitumineux.png',
+    imageAlt: 'Pictogramme mélanges bitumineux',
+  },
+  {
+    title: 'Cailloux, pierres, enrochements, granulats',
+    description:
+      'Déchets composés de pierres et cailloux issus des fondations du bâtiment ou de l’aménagement de sa parcelle. Au sein de ces déchets sont exclus tous les pierres et cailloux provenant de l’excavation de sols naturels et remblais temporaires.',
+    image: '/images/dechets-inertes/cailloux-pierres-granulats.png',
+    imageAlt: 'Pictogramme cailloux, pierres, enrochements et granulats',
+  },
+  {
+    title: 'Mélanges d’inertes',
+    description:
+      'Mélange de déchets inertes cités ci-dessus, hors déchets indésirables et terres.',
+    image: '/images/dechets-inertes/melanges-inertes.png',
+    imageAlt: 'Pictogramme mélanges d’inertes',
   },
 ]
 
-export const wasteRows: WasteRow[] = [
-  {
-    family: 'Terres inertes',
-    examples: 'Terres, déblais minéraux, cailloux, pierres',
-    instruction: 'Validation avant transport et chargement propre',
-  },
-  {
-    family: 'Béton, briques, tuiles',
-    examples: 'Béton, briques, tuiles, céramiques',
-    instruction: 'Sans bois, plâtre, plastique ni éléments pollués',
-  },
-  {
-    family: 'Enrobés admis',
-    examples: 'Enrobés sans goudron et mélanges bitumineux autorisés',
-    instruction: 'À confirmer avec l’équipe avant venue',
-  },
-  {
-    family: 'Mélanges d’inertes propres',
-    examples: 'Mélanges minéraux triés, hors déchets indésirables',
-    instruction: 'Photos conseillées pour accélérer la validation',
-  },
-]
-
-export const wasteTableItems: WasteTableItem[] = [
-  {
-    title: 'Terres et déblais',
-    description:
-      'Matériaux minéraux non pollués issus de terrassement et de déblais.',
-    examples: [
-      'Terres inertes non polluées',
-      'Déblais minéraux propres',
-      'Cailloux et pierres',
-    ],
-    instruction: 'Validation avant transport et chargement propre.',
-    image: '/images/keryvon-excavator.jpeg',
-    imageAlt: 'Terres et déblais sur le site',
-  },
-  {
-    title: 'Béton, briques, tuiles',
-    description:
-      'Déchets minéraux issus de démolition ou de déconstruction, hors éléments indésirables.',
-    examples: ['Béton', 'Briques', 'Tuiles', 'Céramiques'],
-    instruction: 'Sans bois, plâtre, plastique ni éléments pollués.',
-    image: '/images/dechets-acceptes-1.jpg',
-    imageAlt: 'Déchets de béton et gravats admis',
-  },
-  {
-    title: 'Enrobés admis',
-    description:
-      'Enrobés sans goudron et matériaux bitumineux autorisés après contrôle.',
-    examples: [
-      'Enrobés sans goudron',
-      'Mélanges bitumineux autorisés',
-      'Chargements propres',
-    ],
-    instruction: 'À confirmer avec l’équipe avant venue.',
-    image: '/images/dechets-acceptes-2.jpg',
-    imageAlt: 'Enrobés admis sur le site',
-  },
-  {
-    title: 'Mélanges d’inertes propres',
-    description:
-      'Mélanges d’inertes triés, hors déchets indésirables et hors terres polluées.',
-    examples: [
-      'Mélanges d’inertes propres',
-      'Chargements triés',
-      'Matériaux minéraux compatibles',
-    ],
-    instruction: '',
-    image: '/images/keryvon-recycling.jpeg',
-    imageAlt: 'Mélanges d’inertes sur le site',
-  },
-]
+export const wastePreviewItems = [
+  wasteDefinitionItems[0],
+  wasteDefinitionItems[3],
+  wasteDefinitionItems[7],
+  wasteDefinitionItems[9],
+] as const
 
 export const wasteRejected = [
   'Déchets dangereux ou pollués',
@@ -387,16 +337,12 @@ export const wasteRejected = [
 
 export const wastePageContent = {
   eyebrow: 'Déchets inertes',
-  title: 'Matériaux admis sur le site',
+  title: 'Les différents déchets de matériaux inertes',
   description:
-    'Nous accueillons les matériaux inertes compatibles avec le site. En cas de doute, on valide toujours le chargement avant transport.',
-  cardsTitle: 'Ce que vous pouvez nous apporter',
-  tableTitle: 'Les matériaux inertes reçus sur le site',
-  tableDescription:
-    'Chaque ligne reprend une famille de matériaux avec un repère simple avant votre venue. Si le chargement est mixte ou si un doute existe, contactez-nous avant de vous déplacer.',
+    'Pour être recyclés et valorisés dans de nouvelles applications (remblais, sous-couches routières, granulats recyclés…), les déchets de produits et matériaux inertes doivent être triés par catégories. Voici la définition de chaque déchet de matériau inerte.',
   rejectedTitle: 'Non admissibles',
   rejectedDescription:
-    'Certains matériaux ne sont pas admis sur le site ou demandent une vérification avant tout transport.',
+    'Certains matériaux ne sont pas admis sur le site, comme les :',
   reminderTitle: 'Admission préalable',
   reminderText:
     "Avant votre venue, indiquez-nous la nature du matériau, l'origine du chantier et, si besoin, quelques photos du chargement.",
@@ -441,32 +387,56 @@ export const contactPageContent = {
 
 export const bsdiPageContent = {
   eyebrow: 'BSDI',
-  title: 'Bordereau de suivi de déchets inertes',
+  title: 'Document légal et obligatoire',
   description:
-    'Téléchargez le document, consultez les repères utiles et revenez vers nous en cas de doute avant votre venue.',
-  helpTitle: 'Aide pour préparer votre dossier',
+    'Le Bordereau de Suivi des Déchets Inertes doit accompagner le chargement et permet d’assurer la traçabilité du dépôt.',
+  paragraphs: [
+    'Ce document doit être complété avant votre venue sur le site et conservé avec le chargement pour le suivi du dépôt.',
+    'Le plus simple reste de télécharger le BSDI, de préparer les informations utiles et de nous contacter en cas de doute avant transport.',
+  ],
+  sideCardTitle: 'Besoin d’aide pour le compléter ?',
+  sideCardDescription:
+    'Le remplissage en ligne sera ajouté plus tard. En attendant, vous pouvez consulter un repère simple avant de télécharger le document.',
+  helpTitle: 'Aide BSDI',
   helpDescription:
-    'Le plus simple reste de nous transmettre la nature du chargement, le chantier d’origine et les pièces utiles avant transport.',
-  steps: [
+    'Repères simples pour savoir quoi remplir vous-même et quelle partie sera complétée sur le site.',
+  helpSections: [
     {
-      title: 'Validation du chargement',
+      title: '1. Émetteur du bordereau',
       description:
-        "Nous vérifions l'origine du chantier, la nature des matériaux et les documents avant l'arrivée sur site.",
+        'Renseignez l’identité du producteur du déchet et les informations générales sur le chargement.',
+      items: [
+        'Nom, prénom ou raison sociale, adresse, téléphone et mail',
+        'Nature des matériaux déposés',
+        'Quantité estimative et type de conditionnement si besoin',
+      ],
     },
     {
-      title: 'Accueil et pesée',
+      title: '2. Collecteur ou transporteur',
       description:
-        'À votre arrivée, le chargement est orienté et pesé pour assurer le suivi.',
+        'Complétez cette partie si vous transportez vous-même le chargement ou si une entreprise l’achemine.',
+      items: [
+        'Coordonnées du transporteur',
+        'Date du transport',
+        'Mode de transport et signature',
+      ],
     },
     {
-      title: 'Dépôt sur la bonne zone',
+      title: '3. Validation de l’émetteur',
       description:
-        'Les matériaux sont déposés sur la zone prévue selon leur nature et leur conformité.',
+        'La personne qui émet le bordereau vérifie les informations, date et signe avant l’arrivée sur site.',
+      items: [
+        'Relire les informations déclarées',
+        'Dater le document',
+        'Signer avant transport',
+      ],
     },
     {
-      title: 'Suivi documentaire',
+      title: '4. Réception sur le site',
       description:
-        'Les éléments utiles sont conservés pour garder une traçabilité simple et claire.',
+        'La partie réception, pesée et éliminateur est complétée par ATRED lors de l’admission du chargement.',
+      items: [],
+      note: 'Ne pas remplir la partie réservée à l’installation de réception.',
     },
   ],
 } as const
@@ -474,23 +444,21 @@ export const bsdiPageContent = {
 export const bsdiActions: DocumentAction[] = [
   {
     title: 'Télécharger',
-    description: 'Télécharger le BSDI au format PDF.',
-    actionLabel: 'Télécharger le PDF',
+    description: 'Ouvrir le BSDI au format PDF dans un nouvel onglet.',
+    actionLabel: 'Télécharger le BSDI',
     href: '/documents/BSDI.pdf',
-    note: 'Document local fourni par ATRED.',
   },
   {
     title: 'Remplir',
-    description: 'Remplisser votre document en ligne avant de le télécharger.',
-    actionLabel: 'Bientôt disponible',
+    description: 'Le remplissage en ligne sera ajouté dans une prochaine version.',
+    actionLabel: 'Remplir le BSDI',
     disabled: true,
   },
   {
     title: 'Aide',
-    description: 'Voir les étapes et repères utiles avant votre venue.',
-    actionLabel: 'Voir l’aide BSDI',
-    href: '#aide-bsdi',
-    note: 'Accès direct aux explications de la page.',
+    description: 'Voir un repère simple avant de compléter le document.',
+    actionLabel: 'Aide BSDI',
+    note: 'Repères utiles avant votre venue.',
   },
 ]
 

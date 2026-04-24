@@ -42,6 +42,6 @@ usePageSeo({
   description:
     'Catalogue matériaux ATRED avec prix indicatifs, usages chantier et fiches détail.',
   path: '/materiaux-recycles',
-  image: '/images/material-grave-0-31-5.jpg',
+  image: '/images/materiaux/graves_0_315.jpg',
 })
 </script>

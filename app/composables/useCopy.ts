@@ -27,7 +27,7 @@ const messages = {
     name: 'ATRED Valorisation',
     taglineShort: 'Matériaux et déchets inertes',
     taglineLong:
-      'Vente de granulats, accueil de matériaux inertes et service de proximité au départ du site de Keryvon à Languidic.',
+      'Vente de granulats, accueil de matériaux inertes et service de proximité au départ du site de Languidic.',
   },
   footer: {
     navigation: 'Navigation',
@@ -72,12 +72,12 @@ const messages = {
     storyDescription:
       "Le site s'est développé autour d'un besoin simple: proposer aux entreprises locales une solution claire pour traiter leurs déchets inertes et retrouver des matériaux utiles sur leurs chantiers.",
     storyParagraph1:
-      "Le site de Keryvon accompagne depuis plus de vingt ans les flux de matériaux inertes issus des chantiers locaux. Cette expérience constitue aujourd'hui la base opérationnelle d'ATRED Valorisation.",
+      "Le site de Languidic accompagne depuis plus de vingt ans les flux de matériaux inertes issus des chantiers locaux. Cette expérience constitue aujourd'hui la base opérationnelle d'ATRED Valorisation.",
     storyParagraph2:
       "L'évolution de l'activité vise à proposer une filière locale pour les déblais et gravats compatibles, puis à mettre à disposition des graves issues du recyclage ainsi que du sable et des graviers pour remblais, couches d'assise, réglage et besoins courants de chantier.",
     storyParagraph3:
       "Cette approche s'appuie sur une admission cadrée, des vérifications préalables et une relation directe avec les entreprises du territoire pour sécuriser la prise en charge comme la fourniture matière.",
-    siteEyebrow: 'Le site de Keryvon',
+    siteEyebrow: 'Le site de Languidic',
     siteTitle: 'Un outil local pour déposer et se fournir.',
     siteHint:
       "Accès, horaires, nature des matériaux et disponibilités sont confirmés selon le chantier, le stock et le mode d'enlèvement.",

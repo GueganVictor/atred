@@ -64,7 +64,6 @@ const links = computed(() => [
   { label: t('nav.company'), to: '/entreprise' },
   { label: t('nav.waste'), to: '/dechets-inertes' },
   { label: t('nav.materials'), to: '/materiaux-recycles' },
-  { label: t('nav.bsdi'), to: '/procedure-documents' },
   { label: t('nav.contact'), to: '/contact' },
 ])
 </script>
