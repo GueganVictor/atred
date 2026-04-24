@@ -63,7 +63,7 @@ const isOpen = ref(false)
 const navigation = computed(() => [
   { label: t('nav.home'), to: '/' },
   { label: t('nav.company'), to: '/entreprise' },
-  { label: t('nav.waste'), to: '/dechets-inertes' },
   { label: t('nav.materials'), to: '/materiaux-recycles' },
+  { label: t('nav.waste'), to: '/dechets-inertes' },
 ])
 </script>

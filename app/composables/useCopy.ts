@@ -3,7 +3,7 @@ const messages = {
     home: 'Accueil',
     company: "L'entreprise",
     waste: 'Déchets inertes',
-    materials: 'Matériaux',
+    materials: 'Nos matériaux',
     bsdi: 'BSDI',
     process: 'Admission & documents',
     contact: 'Contact',

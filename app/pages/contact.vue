@@ -19,11 +19,14 @@
               >
                 Téléphone
               </p>
-              <a
-                :href="company.phoneLink"
-                class="font-semibold text-neutral-900 hover:text-brand-700"
-                >{{ company.phoneDisplay }}</a
-              >
+              <p>{{ company.contactPerson }}</p>
+              <p class="-mt-1">
+                <a
+                  :href="company.phoneLink"
+                  class="font-semibold text-neutral-900 hover:text-brand-700"
+                  >{{ company.phoneDisplay }}</a
+                >
+              </p>
             </div>
             <div>
               <p
