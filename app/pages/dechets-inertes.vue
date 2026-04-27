@@ -37,10 +37,10 @@
           <AppEyebrow class="text-amber-950!">
             {{ wastePageContent.rejectedTitle }}
           </AppEyebrow>
-          <p class="mt-3 text-sm/7 text-amber-900">
+          <p class="mt-3 text-sm/7 text-amber-950">
             {{ wastePageContent.rejectedDescription }}
           </p>
-          <ul class="mt-5 space-y-2 text-sm/7 font-medium text-amber-800">
+          <ul class="mt-5 space-y-2 text-sm/7 font-medium text-amber-900">
             <li v-for="item in wasteRejected" :key="item">- {{ item }}</li>
           </ul>
         </AppCard>
