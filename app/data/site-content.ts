@@ -212,7 +212,7 @@ export const materials: MaterialProduct[] = [
   {
     slug: '40-80',
     name: '40/80',
-    family: 'quarry',
+    family: 'recycled',
     priceFrom: 8,
     priceUnit: '€ HT / tonne',
     density: 1.6,
@@ -223,7 +223,7 @@ export const materials: MaterialProduct[] = [
       'Le 40/80 convient aux usages de drainage et aux besoins de gros calibre.',
     applications: ['Drainage', 'Couche grossière', 'Aménagement technique'],
     technicalInfo: [
-      { label: 'Famille', value: 'De carrière' },
+      { label: 'Famille', value: 'Recyclés' },
       { label: 'Granulométrie', value: '40/80' },
       { label: 'Densité indicative', value: '1,5 t/m³' },
     ],
@@ -498,6 +498,10 @@ export const companyGallery = [
     {
     src: '/images/keryvon-borne.png',
     alt: 'Borne de pesage à l\'entrée du site.',
+  },
+  {
+    src: '/images/keryvon-crushing.jpeg',
+    alt: 'Installation de concassage sur le site',
   },
 ] as const
 

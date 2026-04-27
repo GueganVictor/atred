@@ -86,7 +86,6 @@
           <SectionHeading
             eyebrow="Déchets inertes"
             :title="homeContent.wasteBlockTitle"
-            :description="homeContent.wasteBlockText"
           />
         </div>
 

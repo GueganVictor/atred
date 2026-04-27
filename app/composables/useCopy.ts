@@ -55,7 +55,7 @@ const messages = {
     heroWasteAdmissionNote:
       "Admission confirmée avant transport selon la nature du chargement, son origine chantier et l'absence d'éléments non inertes.",
     heroWasteDetail:
-      'Terres inertes, déblais, béton, briques, tuiles et matériaux minéraux compatibles peuvent être orientés sur site après validation préalable.',
+      'Terres inertes, déblais, béton, briques, tuiles et matériaux minéraux compatibles peuvent être orientés sur site.',
     ctaTitle: 'Un chargement à faire admettre ou un tonnage à réserver ?',
     ctaDescription:
       "Contactez-nous pour confirmer l'admission d'un dépôt, la disponibilité d'un matériau et les modalités d'accès au site.",

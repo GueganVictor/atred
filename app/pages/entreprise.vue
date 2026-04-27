@@ -46,9 +46,9 @@
           </div>
           <div class="overflow-hidden border border-neutral-300 bg-neutral-200">
             <NuxtImg
-              :src="companyGallery[3].src"
-              :alt="companyGallery[3].alt"
-              class="h-56 w-full object-cover"
+              :src="companyGallery[5].src"
+              :alt="companyGallery[5].alt"
+              class="h-56  w-full object-cover scale-150"
               sizes="(max-width: 639px) 100vw, 25vw"
             />
           </div>
@@ -70,7 +70,6 @@
             class="mt-6 border-t border-neutral-200 pt-5 text-sm/7 text-neutral-700"
           >
             <p>{{ company.location }}</p>
-            <p>{{ company.serviceArea }}</p>
             <p>{{ company.hours[0] }}</p>
           </div>
         </AppPanel>
