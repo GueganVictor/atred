@@ -90,39 +90,24 @@
           />
         </div>
 
-        <div class="overflow-hidden border border-neutral-300 bg-white">
-          <div
-            class="hidden grid-cols-[6.5rem_minmax(0,14rem)_1fr] gap-4 border-b border-neutral-300 bg-neutral-100 px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] text-neutral-700 md:grid"
-          >
-            <span>Visuel</span>
-            <span>Famille</span>
-            <span>Repère</span>
-          </div>
-
+        <div class="grid gap-4 xl:grid-cols-2">
           <article
             v-for="item in wastePreviewItems"
             :key="item.title"
-            class="grid gap-4 border-b border-neutral-300 p-4 last:border-b-0 sm:px-5 md:grid-cols-[6.5rem_minmax(0,14rem)_1fr] md:items-center"
+            class="flex gap-4 border border-neutral-300 bg-white p-5 sm:gap-5 sm:p-6"
           >
-            <div
-              class="overflow-hidden border border-neutral-300 bg-neutral-100"
-            >
-              <NuxtImg
-                :src="item.image"
-                :alt="item.imageAlt"
-                class="h-20 w-full object-cover"
-                sizes="96px"
-              />
-            </div>
+            <NuxtImg
+              :src="item.image"
+              :alt="item.imageAlt"
+              class="size-18 shrink-0 rounded-full object-cover sm:size-22"
+              sizes="88px"
+            />
 
-            <div>
+            <div class="min-w-0">
               <h3 class="text-lg font-semibold text-neutral-900 sm:text-xl">
                 {{ item.title }}
               </h3>
-            </div>
-
-            <div>
-              <p class="text-base/7 text-neutral-700">
+              <p class="mt-3 text-base/7 text-neutral-700">
                 {{ item.description }}
               </p>
             </div>
@@ -131,7 +116,7 @@
 
         <div class="flex flex-wrap gap-3">
           <AppLinkButton to="/dechets-inertes">
-            Voir les déchets admis
+            Voir tous les déchets admis
           </AppLinkButton>
           <AppLinkButton to="/contact" variant="secondary">
             Valider un chargement

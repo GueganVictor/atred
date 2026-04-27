@@ -321,12 +321,7 @@ export const wasteDefinitionItems: WasteDefinitionItem[] = [
   },
 ]
 
-export const wastePreviewItems = [
-  wasteDefinitionItems[0],
-  wasteDefinitionItems[3],
-  wasteDefinitionItems[7],
-  wasteDefinitionItems[9],
-] as const
+export const wastePreviewItems = wasteDefinitionItems.slice(0, 6)
 
 export const wasteRejected = [
   'Déchets dangereux ou pollués',
