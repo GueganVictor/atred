@@ -175,7 +175,7 @@ const messages = {
     modeSurface: 'Surface totale',
     estimatedVolume: 'Volume estimé',
     estimatedTonnage: 'Tonnage estimé',
-    estimatedPrice: 'Prix indicatif total',
+    estimatedPrice: 'Prix hors taxe indicatif',
     disclaimer:
       'Résultat indicatif. Le besoin final dépend du chantier et du compactage.',
   },

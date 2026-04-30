@@ -242,7 +242,7 @@ export const materials: MaterialProduct[] = [
       'La terre végétale est prévue pour les finitions, le nivellement et les travaux paysagers.',
     applications: ['Nivellement', 'Finitions paysagères', 'Aménagement'],
     technicalInfo: [
-      { label: 'Famille', value: 'De carrière' },
+      { label: 'Famille', value: 'Terre' },
       { label: 'Granulométrie', value: 'Terre végétale' },
       { label: 'Densité indicative', value: '1,3 t/m³' },
     ],
