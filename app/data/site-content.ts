@@ -526,4 +526,4 @@ export const homeMaterials = materials.filter((material) =>
   ),
 )
 
-export const siteContactSummary = `${company.location} • ${company.phoneDisplay} • ${company.email}`
+export const siteContactSummary = `${company.location} • Tel : ${company.phoneDisplay} • Email : ${company.email}`

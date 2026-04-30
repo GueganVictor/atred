@@ -40,11 +40,13 @@
         <div class="mt-4 space-y-3 text-sm/7 text-neutral-700">
           <p>{{ company.location }}</p>
           <p>
+            Tel : 
             <a :href="company.phoneLink" class="hover:text-brand-700">{{
               company.phoneDisplay
             }}</a>
           </p>
           <p>
+            Email :
             <a :href="`mailto:${company.email}`" class="hover:text-brand-700">{{
               company.email
             }}</a>

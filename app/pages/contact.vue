@@ -32,7 +32,6 @@
               <p
                 class="text-sm font-semibold uppercase tracking-[0.12em] text-neutral-500"
               >
-                Email
               </p>
               <a
                 :href="`mailto:${company.email}`"

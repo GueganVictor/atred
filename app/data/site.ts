@@ -53,7 +53,7 @@ export const company = {
   name: 'ATRED Valorisation',
   legalName: 'SAS ATRED Valorisation',
   location: 'Lieu Dit Keryvon, 56440 Languidic',
-  contactPerson: 'Monieur Bastian Jacob',
+  contactPerson: 'Mr Bastian Jacob',
   phoneDisplay: '06 49 76 08 26',
   phoneLink: 'tel:+33649760826',
   email: 'isdi@atredvalorisation.fr',
